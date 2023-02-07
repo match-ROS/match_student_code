@@ -1,0 +1,51 @@
+<launch>
+    <arg name="world_name" default="maze" />
+    <arg name="map_name" default="maze" />
+    <arg name="master_x_pos" default="2.0" />
+    <arg name="master_y_pos" default="1.0" />
+    <arg name="master_yaw_rot" default="0.5" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find splined_relaxed_a_star)/maps/$(arg world_name)/world.world" />
+        <arg name="paused" value="false" />
+        <arg name="use_sim_time" value="true" />
+        <arg name="gui" value="true" />
+        <arg name="headless" value="false" />
+        <arg name="debug" value="false" />
+    </include>
+
+    <!-- Map server -->
+    <arg name="map_file" value="$(find splined_relaxed_a_star)/maps/$(arg map_name)/map.yaml" />
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+    <rosparam command="load" file="$(find splined_relaxed_a_star)/config/formation_params.yaml" />
+
+    <!--Variables for the robot1-->
+    <arg name="robot1_name" default="mir1" />
+    <arg name="robot1_x_pos_rel" default="0.0" />
+    <arg name="robot1_y_pos_rel" default="0.5" />
+    <arg name="robot1_yaw_rot_rel" default="0.0" />
+
+    <!-- myarg1 + myarg2 * cos(myarg3) -->
+    <arg name="robot1_x_pos" value="$(eval master_x_pos + robot1_x_pos_rel * cos(master_yaw_rot) - robot1_y_pos_rel * sin(master_yaw_rot))" />
+    <arg name="robot1_y_pos" value="$(eval master_y_pos - robot1_x_pos_rel * sin(master_yaw_rot) + robot1_y_pos_rel * cos(master_yaw_rot))" />
+    <arg name="robot1_yaw_rot" value="$(eval master_yaw_rot + robot1_yaw_rot_rel)" />
+
+    <!-- Choose group for creating a namespace environment if you want to add multiple nodes/includes to that namespace easily -->
+    <group ns="$(arg robot1_name)">
+        <include file="$(find mir_launch_sim)/launch/mir_200.launch">
+            <arg name="robot_x" default="$(arg robot1_x_pos)" />
+            <arg name="robot_y" default="$(arg robot1_y_pos)" />
+            <arg name="robot_yaw" default="$(arg robot1_yaw_rot)" />
+            <arg name="tf_prefix" default="$(arg robot1_name)" />
+            <arg name="model_name" default="$(arg robot1_name)" />
+            <arg name="move_base_selector" value="None" />
+            <arg name="global_planner" default="SplinedRelaxedAStar" />
+            <arg name="global_planner_config" default="$(find splined_relaxed_a_star)/config/SplinedRelaxedAStar.yaml" />
+            <arg name="local_planner" default="PoseFollower" />
+            <arg name="local_planner_config" default="$(find mir_navigation)/config/Planner/LocalPlanner/PoseFollower.yaml" />
+        </include>
+    </group>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find splined_relaxed_a_star)/config/nav_setup_multi.rviz" />
+</launch>

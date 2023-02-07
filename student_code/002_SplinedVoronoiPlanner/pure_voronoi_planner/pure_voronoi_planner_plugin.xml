@@ -1,0 +1,5 @@
+<library path="lib/libpure_voronoi_planner">
+    <class name="pure_voronoi_planner/PureVoronoiPlanner" type="voronoi_planner::PureVoronoiPlanner" base_class_type="nav_core::BaseGlobalPlanner">
+        <description>This is a global planner plugin which utilized voronoi diagrams.</description>
+    </class>
+</library>

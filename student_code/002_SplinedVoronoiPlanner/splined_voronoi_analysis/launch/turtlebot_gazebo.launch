@@ -1,0 +1,45 @@
+<launch>
+    <arg name="path_to_map_folder" />
+    <!--
+    <arg name="world_name" default="testarena" />
+    <arg name="map_name" default="testarena" />
+    -->
+    <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]" />
+    <arg name="x_pos" default="0.0" />
+    <arg name="y_pos" default="0.0" /> <!-- -2.5 -->
+    <arg name="z_pos" default="0.0" />
+    <arg name="a_pos" default="0.0" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg path_to_map_folder)/world.world" />
+        <!--<arg name="world_name" value="$(find splined_voronoi_analysis)/maps/$(arg world_name)/world.world" />-->
+        <arg name="paused" value="false" />
+        <arg name="use_sim_time" value="true" />
+        <arg name="gui" value="false" />
+        <arg name="headless" value="true" />
+        <arg name="debug" value="false" />
+    </include>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+        <param name="publish_frequency" type="double" value="50.0" />
+    </node>
+
+    <!-- Map server -->
+    <!--<arg name="map_file" value="$(find splined_voronoi_analysis)/maps/$(arg map_name)/map.yaml" />-->
+    <arg name="map_file" value="$(arg path_to_map_folder)/map.yaml" />
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+    <!-- Localization -->
+    <include file="$(find turtlebot3_navigation)/launch/amcl.launch">
+        <arg name="initial_pose_x" value="$(arg x_pos)" />
+        <arg name="initial_pose_y" value="$(arg y_pos)" />
+        <arg name="initial_pose_a" value="$(arg a_pos)" />
+    </include>
+
+    <!-- rviz for visualization -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find splined_voronoi_analysis)/config/nav_setup.rviz" />
+</launch>

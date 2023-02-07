@@ -55,3 +55,4 @@ To merge your changes/added files into the official match-ROS repository, we nee
 | Id | Thesis title | Description |
 | --- | --- | --- |
 | 000 | Example Folder | This folder contains templates and examples how it should look like |
+| [002](student_code/002_SplinedVoronoiPlanner/README.md) | Planung und Glättung von Pfaden für Formationen nicht-holonomer mobiler Roboter | Path planning with voronoi diagrams and smoothing with quintic bezier-splines |

@@ -1,0 +1,12 @@
+<launch>
+    <arg name="master_robot_ns" default="" />
+    <arg name="global_planner" default="PureVoronoiPlanner" />
+    <arg name="global_planner_config" default="$(find pure_voronoi_planner)/config/pure_voronoi_planner_params.yaml" />
+
+    <include file="$(find splined_voronoi_analysis)/launch/voronoi_planner.launch">
+        <arg name="master_robot_ns" value="$(arg master_robot_ns)" />
+        <arg name="global_planner" value="$(arg global_planner)" />
+        <arg name="global_planner_config" value="$(arg global_planner_config)" />
+    </include>
+
+</launch>

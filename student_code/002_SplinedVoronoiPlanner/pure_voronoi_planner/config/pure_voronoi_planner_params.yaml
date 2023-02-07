@@ -1,0 +1,11 @@
+planners:
+  - name: 'PureVoronoiPlanner'
+    type: 'pure_voronoi_planner/PureVoronoiPlanner'
+
+VoronoiPlanner:
+  free_cell_threshold: 0
+  min_radius: 1.0
+  use_dijkstra: false
+  free_space_factor: 4.0
+  large_free_spaces: True
+

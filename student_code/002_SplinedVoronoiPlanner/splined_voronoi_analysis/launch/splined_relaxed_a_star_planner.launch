@@ -1,0 +1,14 @@
+<launch>
+    <!-- Move base -->
+    <arg name="master_robot_ns" default="" />
+    <arg name="global_planner" default="SplinedRelaxedAStar" />
+    <arg name="global_planner_config" default="$(find splined_relaxed_a_star)/config/splined_relaxed_a_star.yaml" />
+
+    <group ns="splined_planner">
+        <include file="$(find splined_voronoi_analysis)/launch/splined_voronoi.launch">
+            <arg name="master_robot_ns" value="$(arg master_robot_ns)" />
+            <arg name="global_planner" value="$(arg global_planner)" />
+            <arg name="global_planner_config" value="$(arg global_planner_config)" />
+        </include>
+    </group>
+</launch>

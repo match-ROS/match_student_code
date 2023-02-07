@@ -1,0 +1,49 @@
+<launch>
+
+    <arg name="master_robot_ns" default="" />
+    <arg name="tf_prefix" default="$(arg master_robot_ns)" doc="Prefix used for robot tf frames" /> <!-- used in the config files -->
+    <arg if="$(eval tf_prefix=='')" name="tf_prefix_slashed" value="" /> <!--Important for proper substitution (empty tf_prefix must not lead to leading slashes-->
+    <arg unless="$(eval tf_prefix=='')" name="tf_prefix_slashed" value="$(arg tf_prefix)/" /> <!--Important for proper substitution (empty tf_prefix must not lead to leading slashes-->
+    <arg name="global_planner" default="SplinedVoronoiPlanner" />
+    <arg name="global_planner_config" default="$(find splined_voronoi)/config/splined_voronoi_params.yaml" />
+    <arg name="local_planner" default="DWAPlannerROS" />
+
+    <arg name="tf_timeout" default="1.5" />
+    <arg name="planner_max_retries" default="3" />
+
+    <!--<group ns="$(arg master_robot_ns)">-->
+    <node pkg="mbf_costmap_nav" type="mbf_costmap_nav" respawn="false" name="move_base_flex" output="screen">
+        <param name="tf_timeout" value="$(arg tf_timeout)" />
+        <param name="planner_max_retries" value="$(arg planner_max_retries)" />
+
+        <!-- general move_base param -->
+        <rosparam file="$(find splined_voronoi_analysis)/config/mbf_config/mbf_common_params.yaml" command="load" subst_value="true" />
+        <rosparam param="recovery_enabled">False</rosparam>
+
+        <!-- Load param file for the global path planner. User must define the path to the config file. -->
+        <rosparam file="$(arg global_planner_config)" command="load" />
+        <!-- Load param file for the local path planner. User must define the path to the config file. -->
+        <!--<rosparam file="$(arg local_planner_config)" command="load" />-->
+
+        <!-- global costmap params -->
+        <rosparam file="$(find splined_voronoi_analysis)/config/mbf_config/costmap_common_params.yaml" command="load" ns="global_costmap" subst_value="true" />
+        <rosparam file="$(find splined_voronoi_analysis)/config/mbf_config/costmap_params.yaml" command="load" />
+        <rosparam file="$(find splined_voronoi_analysis)/config/mbf_config/costmap_common_params.yaml" command="load" ns="local_costmap" subst_value="true" />
+
+        <remap from="cmd_vel" to="/mir1/mobile_base_controller/cmd_vel_no" />
+        <remap from="odom" to="/mir1/mobile_base_controller/odom" />
+        <remap from="map" to="/map" />
+    </node>
+
+    <!--</group>-->
+    <!-- This relay allows the usage of the old simple_goal topic from move_base -->
+    <node pkg="splined_voronoi_analysis" type="move_base_simple_relay.py" name="move_base_simple_relay" output="screen">
+        <param name="global_planner_name" value="$(arg global_planner)" />
+        <param name="local_planner_name" value="$(arg local_planner)" />
+    </node>
+
+    <!-- dynamic reconfigure -->
+    <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" output="screen" />
+
+
+</launch>

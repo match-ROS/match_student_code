@@ -1,0 +1,3 @@
+[submodule "student_code/002_SplinedVoronoiPlanner/match_path_planning"]
+	path = student_code/002_SplinedVoronoiPlanner/match_path_planning
+	url = https://github.com/match-ROS/match_path_planning/

@@ -1,0 +1,7 @@
+ <!-- Launch file to launch the prerecorded map for the Fusion and visualisation on RVIZ -->
+<launch>
+
+  <arg name="map_file" default="$(find my_scripts)/launch/floorplan/my_new_map.yaml"/>       <!-- path of map file -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="true" />
+
+</launch>

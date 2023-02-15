@@ -1,0 +1,9 @@
+<launch>
+  <!-- AMCL and Beacon Extended Kalman Filter-->
+  <!-- delete $ befor running-->
+  <!-- <node pkg="rosbag" type="play" name="rosbagplay" args="$(find my_scripts)/Aufnahmen_fuer_Auswertung/Aufnahmen_omni_2/Aufnahme1/aufnahme1.bag -$-clock -d 5" required="true"/>-->
+  <!--<node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="2 0 0 0 0 0 map beacon_map 100" /> -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_odom" clear_params="true">
+    <rosparam command="load" file="$(find my_scripts)/sensor_fusion/parameter/robot_localization_odom.yaml" />
+  </node>
+</launch>

@@ -55,3 +55,4 @@ To merge your changes/added files into the official match-ROS repository, we nee
 | Id | Thesis title | Description |
 | --- | --- | --- |
 | 000 | Example Folder | This folder contains templates and examples how it should look like |
+| 001 | Evaluation of an Ultrasound-based Indoor Localization System for Mobile Multi-robot Systme | In this work we developed a localization system based on the sensor fusion approach using the EKF|

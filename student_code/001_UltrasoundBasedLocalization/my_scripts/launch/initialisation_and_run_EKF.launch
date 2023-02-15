@@ -1,0 +1,19 @@
+<!-- This launch file is to be run on rosmaster. It will launch Rviz with pre_saved configuration. Start a node to set the initial pose estimation based on a 10 sec observation from the mobile beacons and assign an initianl covariance matrix with a diagonal based on the pose error within 10sec observation -->
+
+<launch>
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find my_scripts)/rviz_config.rviz"/>
+    <node name="initialpose" pkg="my_scripts" type="setup_initial_pose.py" output="screen" />
+
+    <arg name="node_start_delay" default="2.0" />  
+    <arg name="node_start_delay_2" default="7.0" />
+    
+    <node name="covariance" pkg="my_scripts" type="define_initialpose_variance.py" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " />
+    <node name="mean_pose_initial" pkg="my_scripts" type="middle.point.py" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " />
+    <node name="mean_pose" pkg="my_scripts" type="remap_pose_mean_covariance.py" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay_2); $0 $@' " />
+
+    <include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+        <arg name="time" value="9" />
+        <arg name="pkg" value="my_scripts" />
+        <arg name="file" value="ekf_localization_map.launch" />
+    </include>
+</launch>

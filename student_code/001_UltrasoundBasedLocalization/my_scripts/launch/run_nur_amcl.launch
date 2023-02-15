@@ -1,0 +1,9 @@
+<!-- Launch file used to study the effect of AMCL parameter tunig based on pre-recorded scan data-->
+
+<launch> 
+    <node pkg="rosbag" type="play" name="rosbagplay" args="$(find my_scripts)/aufnahmen/AMCL/Path/2022-12-07-14-49-36.bag --clock -d 5" required="true"/> 
+    <include file="$(find my_scripts)/launch/amcl_old.launch" />
+
+</launch>
+
+

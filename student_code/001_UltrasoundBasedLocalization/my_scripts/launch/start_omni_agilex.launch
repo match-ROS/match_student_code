@@ -1,0 +1,16 @@
+<!-- Launch file to Start the robot. File mast be launched on the Robot computer Agilex-->
+<!-- Static transformations from beacon-map to map and from Base_link to laser are defined -->
+<launch> 
+    <include file="$(find scout_bringup)/launch/scout_mini_omni_minimal.launch" /> <!--lauches the Robot-->
+
+    <node pkg="tf" type="static_transform_publisher" name="beacon_map_broadcaster" args="-1.224 -0.3037 0 0 0 0 /beacon_map /map   100"/> 
+    <node pkg="tf" type="static_transform_publisher" name="rp_lidar_link" args="-0.1 0 0.1 0 0 0 /base_link /laser 100"/>
+    <include file="$(find my_scripts)/launch/launch_map_match.launch" /> <!--lauches the launch_map_match file -->
+
+    <include file="$(find rplidar_ros)/launch/rplidar_a3.launch" /> <!--lauches the laser scanner -->
+
+    <include file="$(find my_scripts)/launch/amcl.launch" /> <!--lauches the AMCL algorithm -->
+
+    <include file="$(find my_scripts)/launch/multi_hedge.launch" /> <!--lauches the Hedges node-->
+
+</launch>

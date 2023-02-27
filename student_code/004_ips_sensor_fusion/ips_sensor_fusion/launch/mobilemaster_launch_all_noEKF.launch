@@ -1,0 +1,8 @@
+<launch>
+<!-- launch all without ekf -->
+  <node pkg="ips_sensor_fusion" type="sync_time.sh" name="timesync" output="screen" />
+  <include file="$(find ips_sensor_fusion)/launch/amcl_without_ekf.launch" />
+  <include file="$(find ips_sensor_fusion)/launch/launch_map_match.launch" />
+  <include file="$(find ps4_controller)/launch/single_mir_ps4_drive.launch" />
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ips_sensor_fusion)/rviz_config_offline.rviz"/> -->
+</launch>

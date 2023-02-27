@@ -1,0 +1,2 @@
+# data and code to calculate marvelminds standard deviation
+The robot was driven manually to several points in the room and stood still for ten seaconds at each point. The position was tracked using the faro scanner and the hedgehog positions were recorded using rosbag. Using plotjuggler csv export, the faro and hedgehog positions were manually export to csv files, one for each static point. A jupyter notebook was used to calculate the standard deviation of the hedgehog positions for each static point.

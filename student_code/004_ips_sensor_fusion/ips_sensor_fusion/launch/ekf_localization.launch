@@ -1,0 +1,14 @@
+<launch>
+<!-- start the relative and absolute kalman filter -->
+
+  <!-- node for odom and imu filtered -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_relative" clear_params="true">
+    <rosparam command="load" file="$(find ips_sensor_fusion)/parameter_configs/relative_ekf_config.yaml" />
+  </node>
+
+  <!-- node for amcl and marv -->
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_absolute" clear_params="true">
+    <rosparam command="load" file="$(find ips_sensor_fusion)/parameter_configs/absolute_ekf_config.yaml" />
+    <remap from="odometry/filtered" to="ekf_pose"/> 
+  </node>
+</launch>

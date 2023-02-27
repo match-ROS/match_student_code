@@ -1,0 +1,5 @@
+<launch>
+<!-- mapping node with visualization -->
+  <include file="$(find ips_sensor_fusion)/launch/mapping.launch" />
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find mir_navigation)/rviz/navigation_mapping.rviz" />
+</launch>

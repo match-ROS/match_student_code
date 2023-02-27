@@ -1,0 +1,7 @@
+<launch>
+<!-- nodes for full transformation from marvelmind data to map via faro -->
+
+    <!-- manually fine tuned transformations -->
+    <node pkg="tf" type="static_transform_publisher" name="faro_map_transform" args="1.77 -0.57 0 3.122 0 0 /map /faro_frame 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="marv_faro_transform" args="2.18 1.38 0 3.125 0 0 /faro_frame /marv_frame 100"/>
+</launch>

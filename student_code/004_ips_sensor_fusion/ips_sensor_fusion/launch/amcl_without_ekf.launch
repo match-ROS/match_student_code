@@ -1,0 +1,7 @@
+<launch>
+<!-- amcl setup for use without ekf  -->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam command="load" file="$(find ips_sensor_fusion)/parameter_configs/amcl_config.yaml" />
+    <param name="/tf_broadcast"            value="true"/>
+  </node>
+</launch>

@@ -1,0 +1,25 @@
+[submodule "student_code/004_ips_sensor_fusion/rplidar_ros"]
+	path = student_code/004_ips_sensor_fusion/rplidar_ros
+	url = https://github.com/Slamtec/rplidar_ros
+[submodule "student_code/004_ips_sensor_fusion/ros_marvelmind_package"]
+	path = student_code/004_ips_sensor_fusion/ros_marvelmind_package
+	url = https://bitbucket.org/marvelmind_robotics/ros_marvelmind_package.git
+[submodule "student_code/004_ips_sensor_fusion/ugv_sdk"]
+	path = student_code/004_ips_sensor_fusion/ugv_sdk
+	url = https://github.com/westonrobot/ugv_sdk.git
+[submodule "student_code/004_ips_sensor_fusion/scout_ros"]
+	path = student_code/004_ips_sensor_fusion/scout_ros
+	url = https://github.com/westonrobot/scout_ros.git
+[submodule "student_code/004_ips_sensor_fusion/slam_gmapping"]
+	path = student_code/004_ips_sensor_fusion/slam_gmapping
+	url = https://github.com/ros-perception/slam_gmapping.git
+[submodule "student_code/004_ips_sensor_fusion/openslam_gmapping"]
+	path = student_code/004_ips_sensor_fusion/openslam_gmapping
+	url = https://github.com/ros-perception/openslam_gmapping.git
+[submodule "student_code/004_ips_sensor_fusion/-b"]
+	path = student_code/004_ips_sensor_fusion/-b
+	url = https://github.com/cra-ros-pkg/robot_localization.git
+[submodule "student_code/004_ips_sensor_fusion/robot_localization"]
+	path = student_code/004_ips_sensor_fusion/robot_localization
+	url = https://github.com/cra-ros-pkg/robot_localization.git
+	branch = noetic-devel

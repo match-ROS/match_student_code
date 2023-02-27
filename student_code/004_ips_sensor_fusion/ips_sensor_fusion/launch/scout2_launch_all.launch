@@ -1,0 +1,5 @@
+<launch>
+<!-- launch scout and marvelmind main nodes, time needs to be syncronized manually -->
+  <include file="$(find ips_sensor_fusion)/launch/mini_lidar_scout2.launch" />
+  <include file="$(find ips_sensor_fusion)/launch/multi_hedge.launch" />
+</launch>

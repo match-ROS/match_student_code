@@ -1,0 +1,8 @@
+<launch>
+<!-- start amcl node with config -->
+
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <rosparam command="load" file="$(find ips_sensor_fusion)/parameter_configs/amcl_config.yaml" />
+    <!-- <remap from="odom" to="odometry/filtered" /> -->
+  </node>
+</launch>

@@ -1,0 +1,3 @@
+#ignore all other data in this folder
+*
+!.gitignore

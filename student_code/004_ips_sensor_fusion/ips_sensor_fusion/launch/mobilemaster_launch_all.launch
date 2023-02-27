@@ -1,0 +1,8 @@
+<launch>
+<!-- main mobilemaster launch file, launch all required nodes for ips sensor fusion -->
+  <node pkg="ips_sensor_fusion" type="sync_time.sh" name="timesync" output="screen" />
+  <include file="$(find ips_sensor_fusion)/launch/amcl.launch" />
+  <include file="$(find ips_sensor_fusion)/launch/launch_map_match.launch" />
+  <include file="$(find ps4_controller)/launch/single_mir_ps4_drive.launch" />
+  <include file="$(find ips_sensor_fusion)/launch/ekf_localization.launch" />
+</launch>

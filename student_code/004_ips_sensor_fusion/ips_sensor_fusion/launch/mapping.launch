@@ -1,0 +1,9 @@
+<launch>
+<!-- base mapping node -->
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping_thing" output="screen" >
+    <param name="odom_frame" value="odom" />
+    <param name="base_frame" value="base_link" />
+    <!-- set maximum laser range for map building to eliminate long range jitter-->
+    <param name="maxRange" value="7" />
+  </node>
+</launch>

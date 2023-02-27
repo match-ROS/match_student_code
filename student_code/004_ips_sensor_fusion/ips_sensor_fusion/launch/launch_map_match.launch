@@ -1,0 +1,24 @@
+<launch>
+<!-- files to always run on mobilemaster launch -->
+
+  <!-- map -->
+  <arg name="map_file" default="$(find ips_sensor_fusion)/floorplan/map_2810_4_corrected.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="true" />
+
+  <!-- message conversions -->
+  <node pkg="ips_sensor_fusion" type="hedgepos_to_posestamped.py" name="convert_hedgepos_posestamped" />
+  <node pkg="ips_sensor_fusion" type="imu_raw_to_imu_message.py" name="convert_imu" />
+  <node pkg="ips_sensor_fusion" type="imu_fusion_to_imu_message.py" name="convert_imu_fusion" />
+
+  <!-- parameter loading -->
+  <rosparam command="load" file="$(find ips_sensor_fusion)/parameter_configs/hedgehog_covariances.yaml" />
+
+  <!-- tf transforms and point publishers -->
+  <node pkg="ips_sensor_fusion" type="publish_transformed_positions.py" name="transformation_publisher" />
+  <node pkg="ips_sensor_fusion" type="beaconpos_publisher.py" name="beaconpos_publisher" />
+  <include file="$(find ips_sensor_fusion)/launch/faro_transform_launcher.launch" />
+
+  <!-- other nodes -->
+  <node pkg="ips_sensor_fusion" type="amcl_recovery.py" name="amcl_recovery" output="screen"/>
+  
+</launch>

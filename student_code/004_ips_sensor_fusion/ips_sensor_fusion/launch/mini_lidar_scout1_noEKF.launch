@@ -1,0 +1,7 @@
+
+<launch>
+<!-- base scout1 launch -->
+    <node pkg="tf" type="static_transform_publisher" name="rp_lidar_link" args="-0.2 0 0.1 0 0 0 /base_link /laser 100"/>
+    <include file="$(find scout_bringup)/launch/scout_mini_omni_minimal.launch" />
+    <include file="$(find rplidar_ros)/launch/rplidar_a3.launch" />
+</launch>

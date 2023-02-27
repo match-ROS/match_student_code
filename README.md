@@ -55,3 +55,4 @@ To merge your changes/added files into the official match-ROS repository, we nee
 | Id | Thesis title | Description |
 | --- | --- | --- |
 | 000 | Example Folder | This folder contains templates and examples how it should look like |
+| 004 | Entwicklung und Evaluierung von Konzepten zur Nutzung von Ultraschall Indoor Positioning Systemen in der mobilen Robotik | concept for fusing ultrasonic ips data with amcl and imu using kalman filters |

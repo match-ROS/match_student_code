@@ -1,0 +1,6 @@
+<launch>
+<!-- launch static transforms and do message frame transforms -->
+    <!-- <param name="use_sim_time" value="true" /> -->
+    <include file="$(find ips_sensor_fusion)/launch/faro_transform_launcher.launch" />
+    <node pkg="ips_sensor_fusion" type="convert_faro_ros.py" name="faro_csv2bag" output="screen"/>
+</launch>

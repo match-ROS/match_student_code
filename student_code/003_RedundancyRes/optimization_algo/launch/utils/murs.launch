@@ -1,0 +1,20 @@
+<launch>
+    <arg name="robot_name" default="mur"/>
+
+    <!-- ur_goal_width value betwewen 0.0 open and 0.8 closed (If grapping an object add +0.05 as offset)-->
+    <arg name="ur_goal_width" default="0.45" />
+
+    <include file="$(find optimization_algo)/launch/utils/mur_spawn.launch">
+        <arg name="robot_name" value="$(arg robot_name)1"/>
+        <arg name="tf_prefix" value="$(arg robot_name)1"/>
+    </include>
+
+    <include file="$(find optimization_algo)/launch/utils/mur_spawn.launch">
+        <arg name="robot_name" value="$(arg robot_name)2"/>
+        <arg name="tf_prefix" value="$(arg robot_name)2"/>
+        <arg name="robot_x"   default="2.8" />
+        <arg name="robot_y"   default="0.56" />
+        <arg name="robot_yaw" default="3.14159" />
+    </include>
+
+</launch>

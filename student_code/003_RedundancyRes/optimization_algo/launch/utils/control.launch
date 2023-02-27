@@ -1,0 +1,40 @@
+<launch>
+	<arg name="robot_name" default="mur"/>
+	<arg name="prefix_ur" default="ur/"/>
+	<arg name="prefix_mir" default="mir/"/>
+	<arg name="hw" default="true"/>
+	<arg name="launch_admittance" default="true"/>
+	<arg name="use_ft" default="true"/>
+	<arg name="launch_optimization" default="true"/>
+
+	<group ns = "$(arg robot_name)">
+        <!-- Params set before: -->
+        <param name="ur_ns" value="$(arg robot_name)"/>
+        <param name="prefix_ur" value="$(arg prefix_ur)"/>
+		<param name="prefix_mir" value="$(arg prefix_mir)"/>
+		<param name="urdf_name_mur_w_mir_as_joints" value="$(find optimization_algo)/urdf/mur_with_mir_joints.urdf"/>
+		
+		<group if="$(arg launch_admittance)">
+			<remap from="/mur/ft_sensor/raw" to="/mur/ft_sensor/raw/dump" unless="$(arg hw)"/> <!-- Ft sensor zu ungenau -->
+			<remap from="/mur/ur/wrench" to="/mur/ur/wrench/dump" unless="$(arg use_ft)"/> <!-- Ft sensor zu ungenau -->
+			<node pkg="optimization_algo" type="ur16e_admittance_control_simulation_from_hw.py" name="admittance_controller_node" output="screen" unless="$(arg hw)">
+			</node>
+			<node pkg="optimization_algo" type="ur_admittance_control_hw.py" name="admittance_controller_node" output="screen" if="$(arg hw)">
+			</node>
+		</group>
+
+		<group if="$(arg launch_optimization)">
+			<remap from="/mur/cmd_vel" to="/mur/mobile_base_controller/cmd_vel" unless="$(arg hw)"/>
+			<remap from="/mur/odom" to="/mur/mobile_base_controller/odom" unless="$(arg hw)"/>
+			<node pkg="optimization_algo" type="optimize.py" name="optimization_node" output="screen">
+			</node>
+		</group>
+
+	</group>
+	<group if="$(arg launch_admittance)">
+		<node name="ur_controller_stopped_spawner_ft_sensor" pkg="controller_manager" type="spawner" output="screen"
+			args="force_torque_sensor_controller" ns="mur/ur">
+		</node> 
+	</group>
+
+</launch>

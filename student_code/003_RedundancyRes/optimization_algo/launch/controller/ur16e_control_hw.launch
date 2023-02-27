@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="robot_name" default="mur"/>
+    <arg name="prefix_ur" default="ur/"/>
+    <arg name="prefix_mir" default="mir/"/>
+    <group ns="$(arg robot_name)">
+        <param name="ur_ns" value="$(arg robot_name)"/>
+        <param name="prefix_ur" value="$(arg prefix_ur)"/>
+        <param name="prefix_mir" value="$(arg prefix_mir)"/>
+        <node pkg="optimization_algo" type="ur_admittance_control_hw.py" name="admittance_controller_node" output="screen">
+        </node>
+    </group>
+
+    <node name="ur_controller_stopped_spawner_ft_sensor" pkg="controller_manager" type="spawner" output="screen"
+        args="force_torque_sensor_controller" ns="mur/ur">
+    </node> 
+
+</launch>
+

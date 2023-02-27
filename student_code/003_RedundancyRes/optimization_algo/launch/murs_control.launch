@@ -1,0 +1,25 @@
+<launch>
+    <arg name="robot_name" default="mur"/>
+
+
+	<node pkg="optimization_algo" type="switch_gravity.py" name="gravity_on" args='0 0 -9.8'/>
+
+
+    <include file="$(find optimization_algo)/launch/utils/control.launch">
+        <arg name="robot_name" value="$(arg robot_name)1"/>
+    </include>
+
+	<!-- <include file="$(find optimization_algo)/launch/utils/control.launch">
+        <arg name="robot_name" value="$(arg robot_name)2"/>
+    </include> -->
+
+	<include file="$(find timed_roslaunch)/launch/timed_roslaunch.launch">
+		<arg name="time" value="5" />
+		<arg name="pkg" value="optimization_algo" />
+		<arg name="file" value="control.launch" />
+		<arg name="value" value="robot_name:=$(arg robot_name)2" />
+		<arg name="node_name" value="timed_roslaunch_control" /> <!-- This is optional jBrgment -->
+	</include>
+
+
+</launch>

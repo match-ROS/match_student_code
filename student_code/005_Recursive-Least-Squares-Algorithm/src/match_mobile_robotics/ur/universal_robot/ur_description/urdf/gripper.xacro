@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur16e_robot">
+ <link name="gripper_link">
+  <visual>
+    <geometry>
+      <cylinder length ="0.145" radius="0.025"/>
+    </geometry>
+  </visual>
+ </link>
+ 
+ <joint name="gripper_joint" type="fixed">
+   <parent link="tool0"/>
+   <child link="gripper_link"/>
+ </joint>
+</robot>

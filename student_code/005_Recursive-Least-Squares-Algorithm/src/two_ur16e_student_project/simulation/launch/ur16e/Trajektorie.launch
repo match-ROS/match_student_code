@@ -1,0 +1,5 @@
+<launch>
+
+  <node name="robot1_Trajektorie" pkg="simulation" type="robot1_Trajektorie.py" output="screen"/>
+  <node name="robot2_Trajektorie" pkg="simulation" type="robot2_Trajektorie.py" output="screen"/> 
+</launch>

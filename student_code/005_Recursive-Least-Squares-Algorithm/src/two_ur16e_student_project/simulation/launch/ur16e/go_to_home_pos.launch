@@ -1,0 +1,5 @@
+<launch>
+
+  <node name="move_P_controller" pkg="simulation" type="move_P_controller.py" output="screen"/>
+  <node name="move_P_controller2" pkg="simulation" type="move_P_controller2.py" output="screen"/>
+</launch>

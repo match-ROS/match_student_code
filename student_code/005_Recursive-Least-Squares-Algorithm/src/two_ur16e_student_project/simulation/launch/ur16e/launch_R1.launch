@@ -1,0 +1,9 @@
+<launch>
+
+  <include file="$(find simulation)/launch/ur16e/real_robot/real_ur16e.launch"/>
+  <include file="$(find simulation)/launch/ur16e/robot1_demo.launch"/>
+  <node name="pub_jacobianR1" pkg="simulation" type="pub_jacobianR1.py" output="screen" ns="robot11"/>
+  <node name="FK_rob1" pkg="simulation" type="FK_rob1.py" output="screen"/>
+  <node name="test" pkg="simulation" type="test.py" output="screen"/> 
+  <node name="test2" pkg="simulation" type="test2.py" output="screen"/> 
+</launch>

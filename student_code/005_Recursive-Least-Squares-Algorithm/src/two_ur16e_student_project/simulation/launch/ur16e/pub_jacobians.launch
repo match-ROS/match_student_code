@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="pub_jacobainR1" pkg="simulation" type="pub_jacobianR1.py" output="screen"/>
+  <node name="pub_jacobianR2" pkg="simulation" type="pub_jacobianR2.py" output="screen"/>
+  
+</launch>

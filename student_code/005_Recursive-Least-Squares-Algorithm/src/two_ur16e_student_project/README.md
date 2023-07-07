@@ -30,7 +30,7 @@ It's also possible to start the scripts seperatly. For this follow the next setp
 ## Usage for Robot2
 To run the hardware of Robot2 you have to use the drive ssh mur: In this drive you have to use the following command:
 
-'roslaunch simulation real_ur16eR2.launch`
+`roslaunch simulation real_ur16eR2.launch`
 
 To run the necessary scripts like it's done for Robot1 you can use the follwing command:
 
@@ -42,4 +42,4 @@ It's also possible too to start the scripts seperatly. The steps are the same as
 
 If you have launched the files like in the description before, you can use the following command to start the Trajectory for both robots:
 
-'roslaunch simulation Trajektorie.launch'
+`roslaunch simulation Trajektorie.launch`

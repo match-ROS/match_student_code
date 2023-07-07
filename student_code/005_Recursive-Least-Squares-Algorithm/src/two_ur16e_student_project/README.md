@@ -17,5 +17,5 @@ This folder containts the custimized xacro files for the ur16e robot
 
 ## Usage
 To run all necessary scripts to launch robot1 use the following command:
-`roslaunch simulation launch_R1.launch`
+  `roslaunch simulation launch_R1.launch`
 

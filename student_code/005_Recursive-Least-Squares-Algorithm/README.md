@@ -1,7 +1,7 @@
-# Algorithm to Estimate the dynamic Parameters of unknown Objects
+# Algorithm to Estimate the Dynamic Parameters of Unknown Objects
 ## Overview
 
-In this folder are relevant python scripts, launch files and customized files of the official match_mobile_robotics folder. With this package it is possible to estimate the unknown dynamic parameters of an object with two UR16e manipulators
+In this folder are relevant python scripts, launch files and customized files of the official match_mobile_robotics folder. With this package it is possible to estimate the unknown dynamic parameters of an object with two UR16e manipulators.
 
 **Author:** Arian Pajaziti, Karim Qarbi
 
@@ -14,9 +14,9 @@ The match_mobile_robotics package contains all relevant files to start the hardw
 
 ### two_ur16e_student_project
 
-The two_ur16e_stuent_project package contains the scripts for the Recursive-Least-Squares-Algorithm and the Trajectory of each robot.
+The two_ur16e_student_project package contains the scripts for the RLS-Algorithm and the trajectory of each robot.
 
 ### ur16e_moveit
 ### ur16e_moveit2
 
-The ur16e_moveit und ur16e_moveit2 packgaes are the moveit configuration for each robot.
+The ur16e_moveit und ur16e_moveit2 packgages are moveit configurations for each robot.

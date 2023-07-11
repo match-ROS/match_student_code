@@ -33,8 +33,9 @@ the inverse differential kinematics to move the robot2 in a defined trajectory.
 ### relative_postion.py
 With this script it is possible to get the relative position of the two robots based on the tracking system of QauliSys.
 
-### robot1_Trajektorie
+### robot1_Trajektorie.py
 This script contains the calculation of the optimized identification Trajectory which is used for robot1.
+The calculated velocities and acceleration gets published for the data matrix in algorithm.py.
 
-### robot2_Trajektorie
+### robot2_Trajektorie.py
 This script contains the calculation of the optimized identification Trajectory which is used for robot2.

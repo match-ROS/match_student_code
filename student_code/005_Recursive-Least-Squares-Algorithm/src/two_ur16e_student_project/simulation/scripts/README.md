@@ -31,7 +31,7 @@ This script publishes the jacobian matrix of robot2 based on the moveit configur
 the inverse differential kinematics to move the robot2 in a defined trajectory.
 
 ### relative_postion.py
-With this script it is possible to get the relative position of the two robots based on the tracking system of QauliSys.
+With this script it is possible to get the relative position of the two robots based on the motion capture system of QauliSys.
 
 ### robot1_Trajektorie.py
 This script contains the calculation of the optimized identification Trajectory which is used for robot1.

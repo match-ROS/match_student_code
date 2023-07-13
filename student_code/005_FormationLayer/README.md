@@ -10,8 +10,8 @@ This folder contains two packages that were created in a Bachelor thesis. The fi
 
 ##Packages
 
-**formation_layer**
+###formation_layer
 This package contains the source and configuration code of the costmap layer : formation_layer.
 
-**formation_launch**
+###formation_launch
 This package contains the launch files that were used to test the costmap layer.

@@ -2,7 +2,7 @@
 
 ##Overview
 
-This package contains the code of the costmap layer : **formation_layer**.
+This package contains the code of the costmap layer : **formation_layer**. It is designed to be implemented in the global costmap of robots belonging to a multi-robot formation.  
 
 **Author** : Rayen Hajji 
 
@@ -26,30 +26,27 @@ To add the formation_layer to the global costmap of mir robot as a plugin:
 
 ##Config files
 
-* `FormationLayer.cfg`: this file contains : 
+* *FormationLayer.cfg*: this file contains : 
     * the configuration parameter of the formation layer (*formation_layer_enabled*)
     * the configuration parameter of the formation properties calculation (*formation_properties_generated*)
-    * the configuration parameters of the transported object. 
+    * the configuration parameters of the transported object and its corner coordinates (*transport_object_included*,*corner_point_1_x*,  *corner_point_1_x*, etc). 
 
-##Topics
+##Nodes
 
 **Published Topics**
 
-* `formation_footprint` (geometry_msgs::PolygonStamped)
+* *"formation_footprint"* (geometry_msgs::PolygonStamped)
     contains a polygon that defines the calculated formation footprint by the layer.
-* `minimum_enclosing_circle` (visualization_msgs::Marker)
+* "*minimum_enclosing_circle*" (visualization_msgs::Marker)
     contains a marker to visualize the minimum enclosing circle of the formation.
-* `minimum_enclosing_circle_center` (geometry_msgs::PointStamped)
+* "*minimum_enclosing_circle_center*" (geometry_msgs::PointStamped)
     contains a point that defines the center of the minimum enclosing circle of the formation.    
-* `bounding_box` (geometry_msgs::PolygonStamped)
+* "*bounding_box*" (geometry_msgs::PolygonStamped)
     contains a polygon that defines the update bounds of the formaiton layer.
-* `transported_object_corners` (visualization_msgs::MarkerArray)
+* "*transported_object_corners*" (visualization_msgs::MarkerArray)
     contains an array of markers to visualize the corners of the transported object.
 
 **Service Client/Service**
-* `mec_Info` (visualization_msgs::MarkerArray)
+* *"mec_Info"* (visualization_msgs::MarkerArray)
     contains an array of markers to visualize the corners of the transported object.
 
-
-
-            this->mecService_ = this->nh_.advertiseService("mec_Info", &FormationLayer::mecInfoServiceCallback, this);

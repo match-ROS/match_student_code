@@ -48,7 +48,8 @@ This folder contains models that are used to build the simulation worlds.
 ## worlds
 Folder: **worlds**
 
-This folder contains the worlds used for the simulations.
+This folder contains the worlds used for the simulations. To be able to launch the simulation worlds, add the following line to .bashrc file:
+`export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/"Path to the package"/formation_launch/models`
 
 ## Rviz Configuration
 Folder: **rviz**

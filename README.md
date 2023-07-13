@@ -60,4 +60,5 @@ To merge your changes/added files into the official match-ROS repository, we nee
 | [003](student_code/003_RedundancyRes/Readme.md) | Development of an Optimization Function for Redundancy Resolution while Avoiding Singularities for Redundant Mobile Manipulators | Optimization for the UR16 and MiR100/200 on basis of reduced gradient |
 | [004](student_code/004_ips_sensor_fusion/README.md) | Entwicklung und Evaluierung von Konzepten zur Nutzung von Ultraschall Indoor Positioning Systemen in der mobilen Robotik | concept for fusing ultrasonic ips data with amcl and imu using kalman filters |
 | [005](student_code/005_Recursive-Least-Squares-Algorithm/README.md) | Entwicklung eines Algorithmus zur Schätzung der dynamischen Parameter unbekannter Objekte in einem Multirobotersystem | In this work we developed an Recursive-Least-Squares Algorithm to estimate the dynamic parameters of an unknown object |
+| [006](student_code/006_formation_costmap_layer/README.md) | Conception and implementation of an algorithm for the dynamic generation of the costmap of a multi-robot-system | A plugin costmap layer for a multi-robot-system |
 

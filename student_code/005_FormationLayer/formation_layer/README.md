@@ -26,7 +26,7 @@ To add the formation_layer to the global costmap of mir robot as a plugin:
 
     **`- name: formation_layer`**
 
-      **`type: "formation_layer_namespace::FormationLayer"`**
+      `type: "formation_layer_namespace::FormationLayer"`
       
     `- name: inflation`
 
@@ -35,9 +35,9 @@ To add the formation_layer to the global costmap of mir robot as a plugin:
 ## Config files
 
 * **FormationLayer.cfg**: this file contains : 
-    * the configuration parameter of the formation layer (**formation_layer_enabled**)
-    * the configuration parameter of the formation properties calculation (**formation_properties_generated**)
-    * the configuration parameters of the transported object and its corner coordinates (**transport_object_included**,**corner_point_1_x**,  **corner_point_1_x**, etc). 
+    * the configuration parameter of the formation layer ('**formation_layer_enabled**')
+    * the configuration parameter of the formation properties calculation ('**formation_properties_generated**')
+    * the configuration parameters of the transported object and its corner coordinates ('**transport_object_included**'    '**corner_point_1_x**',  '**corner_point_1_x**', etc). 
 
 ## Nodes
 

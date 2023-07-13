@@ -12,7 +12,7 @@ This package contains the code of the costmap layer : **formation_layer**. It is
 
 To add the formation_layer to the global costmap of mir robot as a plugin:
 * Go to the robot navigation package `match_mobile_robotics/mir/mir_navigation` 
-* In the global costmap paramter file `config/Costmap/costmap_global_params.yaml`, add the formation layer as a plugin :   
+* In the global costmap paramter file `config/Costmap/costmap_global_params.yaml`, add the formation layer as a plugin, as follows :   
   
   `plugins:` 
 
@@ -24,9 +24,9 @@ To add the formation_layer to the global costmap of mir robot as a plugin:
 
       `type: "costmap_2d::VoxelLayer"`
 
-    `- name: formation_layer`
+    **`- name: formation_layer`**
 
-      `type: "formation_layer_namespace::FormationLayer"`
+      **`type: "formation_layer_namespace::FormationLayer"`**
       
     `- name: inflation`
 
@@ -35,9 +35,9 @@ To add the formation_layer to the global costmap of mir robot as a plugin:
 ## Config files
 
 * **FormationLayer.cfg**: this file contains : 
-    * the configuration parameter of the formation layer (*formation_layer_enabled*)
-    * the configuration parameter of the formation properties calculation (*formation_properties_generated*)
-    * the configuration parameters of the transported object and its corner coordinates (*transport_object_included*,*corner_point_1_x*,  *corner_point_1_x*, etc). 
+    * the configuration parameter of the formation layer (**formation_layer_enabled**)
+    * the configuration parameter of the formation properties calculation (**formation_properties_generated**)
+    * the configuration parameters of the transported object and its corner coordinates (**transport_object_included**,**corner_point_1_x**,  **corner_point_1_x**, etc). 
 
 ## Nodes
 
@@ -56,5 +56,5 @@ To add the formation_layer to the global costmap of mir robot as a plugin:
 
 **Service Client/Service**
 * "**mec_Info**" (visualization_msgs::MarkerArray)
-    contains an array of markers to visualize the corners of the transported object.
+    provides the center and the radius od the minimum enclosing circle of the formation.
 

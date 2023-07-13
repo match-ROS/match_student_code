@@ -15,7 +15,7 @@ To run the launch files the following command:
 * Four robots formation: `roslaunch formation_launch formation_four_rectangular_robots.launch`
 
 ## Config files 
-Folder : **launch**
+Folder : **config**
 
 There are three configuration files for each formation: 
 - `formation_costmap_params.yaml`: this file contains the robot configurations in the formation.
@@ -35,19 +35,23 @@ There are four different formation launch files. Each launch file gives the poss
 
 ## Maps
 Folder: **maps**
+
 The folder contains the maps of the three environments(hallway(building)/warehouse/wide_maze). Each map consists of two files:
 - `.pgm` : grayscale 2D image of the Map.
 - `.yaml`: configuration file of the Map. 
 
 ## Models
 Folder: **models**
+
 This folder contains models that are used to build the simulation worlds.
 
 ## worlds
 Folder: **worlds**
+
 This folder contains the worlds used for the simulations.
 
 ## Rviz Configuration
 Folder: **rviz**
+
 This folder contains the rviz configurations of the four formations.
 

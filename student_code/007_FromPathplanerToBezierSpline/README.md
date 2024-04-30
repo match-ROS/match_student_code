@@ -10,20 +10,11 @@ This folder contains all the code used in this work. The ROS Package is implemen
 ### bezier_path 
 Contains the whole project
 
-### match_gazebo
-From match_mobile_robotics
-
-### mir_launch_sim
-From match_mobile_robotics/mir
-
-### mir_navigation
-From match_mobile_robotics/mir
-
 ## Launch files
 ### test.launch
-Starts everything including the algorithm.
+Starts everything including the algorithm. Launching this file will generate a spline.
 
-### other launch files in launch dir of bezier_path
+### other launch files in launch directory of bezier_path
 slightly modified launch files from match_mobile_robotics according to currently used path planner and start/end pose
 
 ## class
@@ -33,14 +24,14 @@ Code was copied from "formation-path-planning/fp_utils/src" and modified accordi
 
 ## Source and header files
 ### main
-Started by test.launch. Callback methods and calls functions from other source files to calculate waypoints and splines.
-To change the mode of the algorithm, change the parameter "size_t detail" in the function findBestPath(). Explanation of the modi is commented. Other parameters can also be changed here.
+Started by test.launch. Callback methods and calls functions from other source files to calculate waypoints and Bézier-splines.
+To change the operating mode of the algorithm, change the variable "size_t detail" in the function findBestPath(). Explanation of the modes is commented. Other parameters that influence the spline can also be changed in this function.
 
 ### waypoints
-Functions involved in calculation of waypoints
+Functions involved in calculation of waypoints. Functions called by main.cpp and itself.
 
 ### bezierpath
-Functions involved in calculation of the parameters of the spline segments.
+Functions involved in calculation of the parameters of the spline segments. Functions called by main.cpp and itself.
 
 ### rviz
 Visualization functions for RVIZ
@@ -63,8 +54,15 @@ Sets start and end pose, can be changed here, but also needs to be changed in mi
 ## topdown.rviz
 Saved rviz configuration.
 
-## match_mobile_robotics
-Needed for Gazebo and the mobile robots mir_x00
-
 ## RaStar
 Free to use Relaxed A-Star path planner downloaded from github. Used to test another planner besides navfnRos.
+
+## Dependencies
+### match_gazebo
+From match_mobile_robotics
+
+### mir_launch_sim
+From match_mobile_robotics/mir
+
+### mir_navigation
+From match_mobile_robotics/mir

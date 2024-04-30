@@ -1,0 +1,7 @@
+<launch>
+    <!-- default false so the dilated map can be used -->
+    <arg name="use_map_sim" default="false"/>
+    <include file="$(find bezier_path)/launch/match_world_common_changed.launch" pass_all_args="true">
+        <arg name="world_name" value="maze"/>
+    </include>
+</launch>

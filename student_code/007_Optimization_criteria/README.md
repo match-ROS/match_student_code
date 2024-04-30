@@ -14,4 +14,4 @@ This package contains the launch Files.
 Inside this package are the nodes, for the optimizations
 
 ### bachelor_rviz
-Rviz configuration
+Rviz configuration to show the global path

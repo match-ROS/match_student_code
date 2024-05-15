@@ -60,6 +60,7 @@ Free to use Relaxed A-Star path planner downloaded from github. Used to test ano
 ## Dependencies
 ### match_gazebo
 From match_mobile_robotics
+Due to the issue described in 'utils' the costmap has to be received multiple times. In order for the callback method to work, 'always_use_full_costmap = true' has to be added in mir/mir_navigation/config/Costmap/costmap_common_params.yaml
 
 ### mir_launch_sim
 From match_mobile_robotics/mir

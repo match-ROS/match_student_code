@@ -309,7 +309,7 @@ std::pair<std::vector<Point>, bool> LineOfSight(const nav_msgs::OccupancyGrid& m
                         extendLineIncrementally(extendedPoint, extendedPoint, direction, step_size);
                         nextPointInSight = getNextPointInSight(map, receivedPath, extendedPoint, j);
                     }
-                    if(!isObstacleInLine(map, thisPointInSight, extendedPoint) || !isObstacleInLine(map, extendedPoint, nextPointInSight)) {
+                    if(isObstacleInLine(map, thisPointInSight, extendedPoint) || isObstacleInLine(map, extendedPoint, nextPointInSight)) {
                         
                         direction.negate(); // back to the non obstacle point
                         extendLineIncrementally(extendedPoint, extendedPoint, direction, step_size);

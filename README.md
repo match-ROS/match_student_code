@@ -63,4 +63,6 @@ To merge your changes/added files into the official match-ROS repository, we nee
 | [240101f](student_code/240101f_FormationLayer/README.md) | Conception and implementation of an algorithm for the dynamic generation of the costmap of a multi-robot-system | A plugin costmap layer for a multi-robot-system |
 | [240101g](student_code/240101g_FormationBuilder/README.md) | Entwicklung einer skalierbaren Multiagenten-Pfadplanung zur Formationsbildung für nicht-holonome mobile Roboter | Multi-agent path planning algorithm for transitioning robots into a formation.  |
 | [241107](student_code/241107_AMCL_Object_Geometries/README.md) | Improving Localization Accuracy Using AMCL by Integrating Object Geometries | Method to insert object geometries into RVIZ and scripts for collecting data to calculate AMCL accuracy. |
+| [241216](student_code/241216.md) | Auslegung eines Echtzeit-Erfassungssystems von Bodenunebenheiten mit synchronisierter Kompensation des Endeffektors für mobile Roboter | Entwicklung eines Stabilisierungsalgorithmusses für den Endeffektor bei Befahren einer Bodenunebenheit |
+
 

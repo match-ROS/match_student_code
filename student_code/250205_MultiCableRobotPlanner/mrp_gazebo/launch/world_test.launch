@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+    <arg name="use_map_sim" default="true"/>
+    <arg name="gui" default="true"/>
+    <include file="$(find mrp_gazebo)/launch/mrp_world_common.launch" pass_all_args="true">
+        <arg name="world_name" value="world_test"/>
+        <arg name="use_map_sim" value="$(arg use_map_sim)"/>
+    </include>
+</launch>

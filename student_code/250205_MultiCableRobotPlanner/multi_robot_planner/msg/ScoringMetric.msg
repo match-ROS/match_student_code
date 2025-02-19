@@ -1,0 +1,16 @@
+Header header
+int32 robot_quantity
+int32 pair_quantity
+int32 paths_planned
+int32 ripped_up_nr
+float64 completion_rate
+int32 pairs_failed_nr
+int32 failed_routed_nr
+int32 rerouted_nr
+float64 routability
+float64 reroutability
+float64 computing_time
+float64 cable_length
+float64 cable_length_ratio
+float64 path_length
+float64 path_length_ratio

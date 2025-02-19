@@ -1,0 +1,13 @@
+Header header
+int32 robot_id
+StartGoalPair start_goal_pair
+Pair[] robot_path
+nav_msgs/Path robot_gui_path
+Pair[] robot_cable_path
+nav_msgs/Path robot_gui_cable_path
+Pair[] robot_path_costmap_points
+Pair[] robot_goal_points
+Pair[] robot_start_points
+Pair robot_cable_start
+Pair robot_cable_goal
+float64 robot_cable_length

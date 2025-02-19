@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<launch>
+    <!-- Launch of the Map Servers and Gazebo -->
+    <include file="$(find mrp_gazebo)/launch/six_mir_600_square_house.launch" pass_all_args="true"/>
+
+    <!-- Launch of the publisher for start and goal positions -->
+    <node name="start_goal_publisher_node" pkg="multi_robot_planner" type="start_goal_publisher_node_6_robots" output="screen">
+
+    </node>
+
+    <!-- Launch of the Global Planner Node -->
+    <node name="global_planner_node" pkg="multi_robot_planner" type="global_planner_node" output="screen">
+        <remap from="/costmap" to="/map" />
+    </node>
+
+    <!-- Launch of RViz for the visualization -->
+<!--    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find multi_robot_planner)/rviz/mrp_single_mir_visualization.rviz" />  -->
+</launch>
+

@@ -86,7 +86,7 @@ def main():
     print(f"Sample raw depth values: {depth_image[100, 100]}, {depth_image[200, 200]}")
     print(f"Converted meters: {depth_image[100, 100] * 0.001}, {depth_image[200, 200] * 0.001}")
 
-    #### 🚀 **Start measuring detection + pose estimation time** 🚀 ####
+    #### **Start measuring detection + pose estimation time**  ####
     detection_start = time.time()
 
     # 1) YOLO segmentation
@@ -138,7 +138,7 @@ def main():
         # Store the transformed points
         all_base_points.extend(base_points_cable)
 
-    #### ⏱ **Stop timing after all points are transformed to base frame** ⏱ ####
+    ####  **Stop timing after all points are transformed to base frame**  ####
     detection_end = time.time()
     detection_time = detection_end - detection_start
 
@@ -150,8 +150,8 @@ def main():
         for i, (bx, by, bz) in enumerate(all_base_points):
             writer.writerow([i, bx, by, bz])
 
-    print(f"\n🚀 Detection + Pose Estimation Time: {detection_time:.3f} seconds")
-    print(f"✅ Saved {len(all_base_points)} filtered points to {output_csv}.")
+    print(f"\n Detection + Pose Estimation Time: {detection_time:.3f} seconds")
+    print(f" Saved {len(all_base_points)} filtered points to {output_csv}.")
 
 if __name__ == "__main__":
     main()

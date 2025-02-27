@@ -23,4 +23,4 @@ for shape in data["shapes"]:
 # Save the generated mask
 output_mask_path = "generated_mask.png"
 cv2.imwrite(output_mask_path, mask)
-print(f"✅ Saved generated mask to {output_mask_path}")
+print(f" Saved generated mask to {output_mask_path}")

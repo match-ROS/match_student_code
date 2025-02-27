@@ -9,7 +9,8 @@ The project includes:
 - **Visualization tools** for evaluating the pose estimation quality.
 
 **Author:** Qendresa Berisha
-📧 **E-Mail:** qendresa.berisha@stud.uni-hannover.de
+
+**E-Mail:** qendresa.berisha@stud.uni-hannover.de
 
 Due to large file sizes, raw dataset images and pre-trained YOLO models are stored separately.  
 

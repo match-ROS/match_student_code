@@ -22,4 +22,8 @@ This project requires **Python 3.8+**, and various dependencies for computer vis
 ### **1. Install Dependencies**
 To install all required Python packages, run:
 ```bash
-pip install numpy opencv-python torch torchvision ultralytics matplotlib pandas json
+pip install numpy opencv-python torch torchvision ultralytics matplotlib pandas json labelme
+```
+
+---
+Please read https://github.com/qendre/match_student_code/blob/main/student_code/250204_Cable_detection_for_LocalPP/Cable_Detection/README.md for further details.

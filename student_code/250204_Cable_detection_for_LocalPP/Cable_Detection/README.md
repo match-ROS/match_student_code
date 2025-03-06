@@ -73,7 +73,7 @@ All datasets are saved on the server in the following folders:
   - **data_capture_cable_1m**: Contains the images used for the last overall system evaluation. The label for the image color_001.png is also available and ready to be used to replicate the test.
 
 ### Pose_Validation
-This folder contains two scripts designed to replicate tests for pose estimation validation. These scripts have not been uploaded here, as they were used as intermediate tests to isolate errors. 
+This folder contains two scripts designed to replicate tests for pose estimation validation. These scripts have not been uploaded here, as they were used as intermediate tests to isolate errors. Nevertheless, for calculating a new transformation matrix, please perform the same test using the scripts below with the ArUco Markers.
 
 The tests include:
   - **Transformation matrix validation**: Ensures the accuracy of transformations in pose estimation. ```ArUco_marker.py```

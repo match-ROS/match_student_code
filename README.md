@@ -64,4 +64,5 @@ To merge your changes/added files into the official match-ROS repository, we nee
 | [240101g](student_code/240101g_FormationBuilder/README.md) | Entwicklung einer skalierbaren Multiagenten-Pfadplanung zur Formationsbildung für nicht-holonome mobile Roboter | Multi-agent path planning algorithm for transitioning robots into a formation.  |
 | [241107](student_code/241107_AMCL_Object_Geometries/README.md) | Improving Localization Accuracy Using AMCL by Integrating Object Geometries | Method to insert object geometries into RVIZ and scripts for collecting data to calculate AMCL accuracy. |
 | [241216](student_code/241216_stabilizing_rough_terrain/README.md) | Auslegung eines Echtzeit-Erfassungssystems von Bodenunebenheiten mit synchronisierter Kompensation des Endeffektors für mobile Roboter | Entwicklung eines Stabilisierungsalgorithmusses für den Endeffektor bei Befahren einer Bodenunebenheit |
+| [250318] | Development of a localization algorithm for mobile manipulators in additive manufacturing | Improved 3D LiDAR-based localization with LIO-SAM in indoor environments |
 

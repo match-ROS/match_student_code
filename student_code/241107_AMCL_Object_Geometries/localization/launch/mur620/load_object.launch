@@ -1,0 +1,43 @@
+<launch>
+    <arg name="width" default="1.0" />
+    <arg name="height" default="1.0" />
+    <arg name="depth" default="4.0" />
+    <arg name="center_object_x" default="1.9" />
+    <arg name="center_object_y" default="-0.5" />
+    <arg name="map_and_gazebo" default="0" />
+
+	<group if="$(eval map_and_gazebo == 0)">
+        <!-- Node to load box in Gazebo -->
+        <node name="load_box_gazebo" pkg="localization" type="insert_box.py" output="screen">
+            <param name="width" value="$(arg width)" />
+            <param name="height" value="$(arg height)" />
+            <param name="depth" value="$(arg depth)" />
+            <param name="center_object_x" value="$(arg center_object_x)" />
+            <param name="center_object_y" value="$(arg center_object_y)" />   
+        </node>   
+	</group>
+
+	<group if="$(eval map_and_gazebo == 1)">
+        <!-- Node to load box in Gazebo -->
+        <node name="load_box_gazebo" pkg="localization" type="insert_box.py" output="screen">
+            <param name="width" value="$(arg width)" />
+            <param name="height" value="$(arg height)" />
+            <param name="depth" value="$(arg depth)" />
+            <param name="center_object_x" value="$(arg center_object_x)" />
+            <param name="center_object_y" value="$(arg center_object_y)" />   
+        </node>   
+
+        <!-- Node to update the map -->
+        <node name="map_updater" pkg="localization" type="object_OccupancyGrid.py" output="screen">
+            <param name="width" value="$(arg width)" />
+            <param name="depth" value="$(arg depth)" />
+            <param name="center_object_x" value="$(arg center_object_x)" />
+            <param name="center_object_y" value="$(arg center_object_y)" />
+        </node> 
+	</group>
+
+
+
+</launch>
+
+

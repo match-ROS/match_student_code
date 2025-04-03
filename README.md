@@ -5,7 +5,7 @@ This repository contains all code of the students working at the Institut of Ass
 1. Fork this repository by clicking on the `fork`-button: ![ForkButton](documentation/fork_button.png). Afterwards click `Create fork`.
 2. Click on the `README.md`-file and then click on the edit-button: ![EditButton](documentation/edit_button.png) 
 3. Add another line to the table at the bottom. (You can copy the line of the student above for the structure)
-4. Column `Id`: Increase the previous Id by 1. Please memorize the `Id`, as it will be used in future steps. (always three numbers, f.e. `007` or `069`)
+4. Column `Id`: Use the (planned) submission date of your thesis in the format yymmdd.
 5. Column `Thesis title`: Insert the title of your thesis.
 6. Column `Description`: Explain in one sentence what algorithm or code you developed in your thesis.
 7. Type in a meaningful commit message and commit the changes.
@@ -54,11 +54,15 @@ To merge your changes/added files into the official match-ROS repository, we nee
 ## Content Overview
 | Id | Thesis title | Description |
 | --- | --- | --- |
-| [000](student_code/000_ExampleFolder/README.md) | Example Folder | This folder contains templates and examples how it should look like |
-| [001](student_code/001_UltrasoundBasedLocalization/README.md) | Evaluation of an Ultrasound-based Indoor Localization System for Mobile Multi-robot Systme | In this work we developed a localization system based on the sensor fusion approach using the EKF|
-| [002](student_code/002_SplinedVoronoiPlanner/README.md) | Planung und Glättung von Pfaden für Formationen nicht-holonomer mobiler Roboter | Path planning with voronoi diagrams and smoothing with quintic bezier-splines |
-| [003](student_code/003_RedundancyRes/Readme.md) | Development of an Optimization Function for Redundancy Resolution while Avoiding Singularities for Redundant Mobile Manipulators | Optimization for the UR16 and MiR100/200 on basis of reduced gradient |
-| [004](student_code/004_ips_sensor_fusion/README.md) | Entwicklung und Evaluierung von Konzepten zur Nutzung von Ultraschall Indoor Positioning Systemen in der mobilen Robotik | concept for fusing ultrasonic ips data with amcl and imu using kalman filters |
-| [005](student_code/005_Recursive-Least-Squares-Algorithm/README.md) | Entwicklung eines Algorithmus zur Schätzung der dynamischen Parameter unbekannter Objekte in einem Multirobotersystem | In this work we developed an Recursive-Least-Squares Algorithm to estimate the dynamic parameters of an unknown object |
-| [006](student_code/006_FormationLayer/README.md) | Conception and implementation of an algorithm for the dynamic generation of the costmap of a multi-robot-system | A plugin costmap layer for a multi-robot-system |
-| [007](student_code/007_bezierSplines/README.md) | Evaluierung von Bahnglättungsalgorithmen für Formationen bestehend aus nicht-holonomen mobilen Robotern | An algorithm that generates bezier Splines on the basis of any path planner for the use of formations of non-holonomic mobile robots |
+| [131001](student_code/000_ExampleFolder/README.md) | Example Folder | This folder contains templates and examples how it should look like |
+| [240101a](student_code/240101a_UltrasoundBasedLocalization/README.md) | Evaluation of an Ultrasound-based Indoor Localization System for Mobile Multi-robot Systme | In this work we developed a localization system based on the sensor fusion approach using the EKF|
+| [240101b](student_code/240101b_SplinedVoronoiPlanner/README.md) | Planung und Glättung von Pfaden für Formationen nicht-holonomer mobiler Roboter | Path planning with voronoi diagrams and smoothing with quintic bezier-splines |
+| [240101c](student_code/240101c_RedundancyRes/Readme.md) | Development of an Optimization Function for Redundancy Resolution while Avoiding Singularities for Redundant Mobile Manipulators | Optimization for the UR16 and MiR100/200 on basis of reduced gradient |
+| [240101d](student_code/240101d_ips_sensor_fusion/README.md) | Entwicklung und Evaluierung von Konzepten zur Nutzung von Ultraschall Indoor Positioning Systemen in der mobilen Robotik | concept for fusing ultrasonic ips data with amcl and imu using kalman filters |
+| [240101e](student_code/240101e_Recursive-Least-Squares-Algorithm/README.md) | Entwicklung eines Algorithmus zur Schätzung der dynamischen Parameter unbekannter Objekte in einem Multirobotersystem | In this work we developed an Recursive-Least-Squares Algorithm to estimate the dynamic parameters of an unknown object |
+| [240101f](student_code/240101f_FormationLayer/README.md) | Conception and implementation of an algorithm for the dynamic generation of the costmap of a multi-robot-system | A plugin costmap layer for a multi-robot-system |
+| [240101g](student_code/240101g_FormationBuilder/README.md) | Entwicklung einer skalierbaren Multiagenten-Pfadplanung zur Formationsbildung für nicht-holonome mobile Roboter | Multi-agent path planning algorithm for transitioning robots into a formation.  |
+| [241107](student_code/241107_AMCL_Object_Geometries/README.md) | Improving Localization Accuracy Using AMCL by Integrating Object Geometries | Method to insert object geometries into RVIZ and scripts for collecting data to calculate AMCL accuracy. |
+| [241216](student_code/241216_stabilizing_rough_terrain/README.md) | Auslegung eines Echtzeit-Erfassungssystems von Bodenunebenheiten mit synchronisierter Kompensation des Endeffektors für mobile Roboter | Entwicklung eines Stabilisierungsalgorithmusses für den Endeffektor bei Befahren einer Bodenunebenheit |
+| [240410](student_code/240410_bezierSplines/README.md) | Evaluierung von Bahnglättungsalgorithmen für Formationen bestehend aus nicht-holonomen mobilen Robotern | An algorithm that generates bezier Splines on the basis of any path planner for the use of formations of non-holonomic mobile robots |
+

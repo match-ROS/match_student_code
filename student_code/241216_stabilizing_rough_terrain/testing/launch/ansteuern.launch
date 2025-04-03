@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="testing" type="platform_controller.py" name="controller_node" output="screen"></node>
+    <node pkg="imu" type="kalman_filter.py" name="kalman_filter_node" output="screen"></node>
+    <node pkg="steuerung" type="regelung_neu.py" name="regler_node" output="screen"></node>  
+</launch>
+
+
+

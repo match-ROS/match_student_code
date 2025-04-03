@@ -1,0 +1,2 @@
+base_global_planner: navfn/NavfnROS
+# base_global_planner: RAstar_planner/RAstarPlannerROS

@@ -1,0 +1,8 @@
+<library path="lib/libcable_layer">
+  <class name="cable_layer_namespace::CableLayer" type="cable_layer_namespace::CableLayer" base_class_type="costmap_2d::Layer">
+    <description>
+      Cable Layer for marking positions where the robot has dropped a cable.
+    </description>
+  </class>
+</library>
+

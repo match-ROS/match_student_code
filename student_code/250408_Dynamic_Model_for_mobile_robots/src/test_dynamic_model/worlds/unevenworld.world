@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<sdf version='1.6'>
+  <world name='default'>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <model name="unevenworld">
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="body">
+        <!-- Scaling the collision element -->
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://unevenworld/media/unevenworld.dae</uri>
+              <scale>1 1 1</scale>  <!-- Scale factor for collision geometry -->
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>           <!-- Lateral friction coefficient -->
+                <mu2>1.0</mu2>         <!-- Secondary lateral friction coefficient -->
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_cfm>0.0</soft_cfm>   <!-- Constraint force mixing (0 is rigid) -->
+                <soft_erp>0.2</soft_erp>   <!-- Error reduction parameter -->
+                <kp>1e5</kp>               <!-- Spring constant -->
+                <kd>1e3</kd>               <!-- Damping constant -->
+              </ode>
+            </contact>
+          </surface>  
+        </collision>
+        
+        <!-- Scaling the visual element -->
+        <visual name="visual">
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://unevenworld/media/unevenworld.dae</uri>
+              <scale>1 1 1</scale>  <!-- Scale factor for visual geometry -->
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>9.0 -12.0 6.0 0.0 0.3 2.2</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+    <physics name="default_physics" type="ode">
+      <max_step_size>0.01</max_step_size> <!-- Smaller step size for better stability -->
+      <real_time_update_rate>100</real_time_update_rate>
+    </physics>
+
+  </world>
+</sdf>

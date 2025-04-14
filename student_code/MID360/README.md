@@ -9,7 +9,18 @@ It includes the necessary launch files for running the LIO-SAM algorithm.
 
 **E-Mail:** xinwei.fu@stud.uni-hannover.de
 
+## Dependency
 
+This package requires the same dependencies as LIO-SAM, refer to:  
+[https://github.com/TixiaoShan/LIO-SAM?tab=readme-ov-file](https://github.com/TixiaoShan/LIO-SAM)
+
+Install Livox SDK:  
+[https://github.com/Livox-SDK/Livox-SDK  ](https://github.com/Livox-SDK/Livox-SDK)
+
+Install libignition:  
+```
+sudo apt install libignition-math4-dev
+```
 
 ## Usage
 

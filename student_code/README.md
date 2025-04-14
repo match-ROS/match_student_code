@@ -1,6 +1,6 @@
 ## Overview
-该文件夹包含了学生论文项目中所使用到的所有代码和功能包。该项目研究了LIO-SAM算法在Livox-Mid-360雷达和Mir600移动机器人平台上的应用。实验在仿真软件Gazebo中进行。
-使用evo工具库，对比LIO-SAM和AMCL算法的定位精度。
+This folder contains all the codes and function packages used in the student thesis project. This project studies the application of LIO-SAM algorithm on Livox-Mid-360 radar and Mir600 mobile robot platform. The experiment is carried out in the simulation software Gazebo.
+Using the evo tool library, the positioning accuracy of LIO-SAM and AMCL algorithms is compared.
 
 **Author:** Xinwei Fu
 
@@ -15,3 +15,4 @@ Official Livox package for simulating Livox LiDAR sensors in ROS.
 Official Livox ROS driver for connecting and interfacing Livox LiDAR sensors.
 ### match_mobile_robotics
 Containing simulation files of robot platform and map.
+

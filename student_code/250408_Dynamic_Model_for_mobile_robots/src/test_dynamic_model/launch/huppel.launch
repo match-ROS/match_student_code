@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+  <arg name="gui" default="true"/>
+  <arg name="world_name" default="huppel"/>
+  <arg name="paused" value="true"/>
+  <arg name="use_sim_time" value="true"/>
+
+  <!-- Robot pose -->
+  <!--
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>-->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find terrain)/worlds/$(arg world_name).world"/>
+    <arg name="paused" value="false"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  
+  <!--Basic Robot-->
+  <!--<param name="robot_description" command="$(find xacro)/xacro  '$(find robot_model_pkg)/urdf/robot.xacro'" /> 
+  
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+    args="-unpause -urdf -model robot_model -param robot_description -x 0 -y 0 -z 0 -Y 0"/> 
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>-->
+
+  <!-- Scout -->
+  <arg name="robot_namespace" default="/"/>
+
+  <include file="$(find scout_gazebo_sim)/launch/spawn_scout_mini.launch">
+    <arg name="x" value="0.0"/>
+    <arg name="y" value="0.0"/>
+    <arg name="z" value="0.5"/>
+    <arg name="yaw" default="0.0"/>
+  </include>
+        
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find scout_description)/rviz/model_display.rviz" />
+  
+
+  <!-- DDrive -->
+  <!--<param name="robot_description" command="$(find xacro)/xacro  '$(find robot_model_pkg)/urdf/ddrive.urdf.xacro'" />
+
+   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+    args="-unpause -urdf -model robot_model -param robot_description -x 0 -y 0 -z 0.1 -Y 0"/> 
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>-->
+
+  
+</launch>

@@ -1,0 +1,58 @@
+{
+    "robot_name": "ScoutMini",  
+    "robot_typ" : "tracked", 
+    "robot_typ_comment" : "Choose: Tracked (Kettenantrieb), omnidirectional, differential",
+    "motor_count": 4,      
+    "dimension":{
+        "_comment": "Width, Depth, heigth, track_width & wheel_radius = [m]; spring_stiffness = [N/m]; damping = [Nsm]",
+        "width": 0.3,
+        "depths": 1.0,
+        "heigth": 0.4,
+        "track_width": 0.418,
+        "wheel_base" : 0.464,
+        "wheel_radius": 0.08,
+        "spring_stiffness": 25000,
+        "damping": 200,
+        "wheel_position":{
+            "front_left":   [0.2319755, 0.2082515, -0.100998],
+            "front_right":  [0.2319755, -0.2082515, -0.100998],
+            "rear_left":    [-0.2319755, 0.2082515, -0.100998],
+            "rear_right":   [-0.2319755, -0.2082515, -0.100998]
+        }
+   },
+   "mass_mainframe": 60.0, 
+   "wheel_mass" : 3.0,    
+   "sensors": {
+       "lidar": {
+       "model": "RPLidarA1",  
+       "range_meters": 12.0,  
+       "angle_resolution": 0.0,
+       "topic": ""
+       },
+       "camera": {
+       "enabled": true,       
+       "resolution": [1920, 1080], 
+       "frame_rate": 30       
+       },
+       "imu": {
+       "update_rate": 10.0,
+       "topic": "/imu_data"
+       },
+       "encoder":{
+            "_comment_encoder": "Encoder Settings für Linke und rechte Seite. Mögliche Einheiten: Winkelgeschwindigkeit rad/s, ",
+            "left_encoder":{
+                    "update_rate": 10.0,
+                    "topic": "/joint_states",
+                    "unit": "rad",
+                    "sign": "minus"
+                },
+            "right_encoder":{
+                "update_rate": 10.0,
+                "topic": "/joint_states",
+                "unit": "rad",
+                "sign": "plus"
+        }
+        }
+   }
+
+}

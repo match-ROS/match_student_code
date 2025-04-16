@@ -1,0 +1,79 @@
+name: ROS 1 Simulation Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:  # This enables manual triggers
+
+jobs:
+  gazebo-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ros:noetic  # Verwende dein ROS 1 Docker-Image (z.B. ros:melodic)
+    defaults:
+      run:
+        shell: bash
+    env:
+      DISPLAY: ":99"  # Erforderlich für die headless Gazebo-Umgebung
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup ROS dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-rosdep python3-catkin-tools gazebo9 xvfb
+        if [ ! -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then sudo rosdep init; fi
+        rosdep update
+
+    - name: Install dependencies
+      run: |
+        cd ..
+        cd ..
+        mkdir src
+        mv match_mobile_robotics src/
+        rosdep install --from-paths src --ignore-src --rosdistro $ROS_DISTRO -y
+
+    - name: Print current directory
+      run: pwd
+
+
+    - name: Build the workspace
+      run: |
+        cd ..
+        ls -la
+        source /opt/ros/noetic/setup.bash
+        catkin_make
+      shell: bash
+
+    - name: Test package loading
+      run: |
+        source devel/setup.bash
+        rospack find mir_examples
+      shell: bash
+
+
+    - name: Start Gazebo headless
+      run: |
+        source devel/setup.bash
+        # Xvfb startet einen virtuellen Display-Server
+        Xvfb :99 -screen 0 1920x1080x16 &
+        sleep 5  # Kurze Pause, damit Xvfb und Gazebo initialisiert werden
+        roslaunch match_gazebo big_square.launch gui:=false &
+        sleep 30  # Warte, bis Gazebo vollständig gestartet ist
+
+    - name: Check if robot spawns
+      run: |
+        source devel/setup.bash
+        rostopic echo -n1 /mir_pose_stamped_simple
+        sleep 5
+      shell: bash
+
+
+    - name: Shut down ROS
+      run: |
+        killall -9 roslaunch

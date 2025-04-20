@@ -11,6 +11,10 @@ It includes the necessary launch files for running the LIO-SAM algorithm.
 
 ## Dependency
 
+You can use `setup.sh` to install the dependencies required for this package.
+
+Or install them manually：
+
 This package requires the same dependencies as LIO-SAM, refer to:  
 [https://github.com/TixiaoShan/LIO-SAM?tab=readme-ov-file](https://github.com/TixiaoShan/LIO-SAM)
 
@@ -21,24 +25,6 @@ Install libignition:
 ```
 sudo apt install libignition-math4-dev
 ```
-
-## Usage
-
-To launch the robot platform and map simulation, run the following command:
-
-`roslaunch mir_examples single_mir_600.launch`
-
-To start the LIO-SAM algorithm, run:
-
-`roslaunch lio_sam run6axis.launch`
-
-To run the AMCL algorithm, execute:
-
-`roslaunch mir_examples amcl.launch`
-
-To manually control the robot's motion using the rqt tool, use:
-
-`rosrun rqt_robot_steering rqt_robot_steering`
 
 ## Config files
 - `params.yaml`: The original configuration file of LIOSAM algorithm. Used for traditional mechanical lidar.

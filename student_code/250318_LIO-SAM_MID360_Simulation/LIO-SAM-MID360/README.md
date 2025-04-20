@@ -116,4 +116,4 @@ Merging two 2D LiDAR scans (front and back),this merged scan is then used by the
 ## Acknowledgement
 - [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM/)
 - [LIO_SAM_6AXIS](https://github.com/JokerJohn/LIO_SAM_6AXIS)
-- [LIO-SAM-MID360](https://github.com/nkymzsy/LIO-SAM-MID360))
+- [LIO-SAM-MID360](https://github.com/nkymzsy/LIO-SAM-MID360)

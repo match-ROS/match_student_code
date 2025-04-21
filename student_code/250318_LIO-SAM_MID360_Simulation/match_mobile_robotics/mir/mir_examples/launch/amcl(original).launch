@@ -2,7 +2,6 @@
 
 
 
-    <node pkg="lio_sam" type="laser_combine" name="laser_combine" output="screen" />
 
     <node pkg="amcl" type="amcl" name="amcl" output = "screen">
 

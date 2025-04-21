@@ -16,3 +16,29 @@ Official Livox ROS driver for connecting and interfacing Livox LiDAR sensors.
 ### match_mobile_robotics
 Containing simulation files of robot platform and map.
 
+## Usage
+Create a catkin_ws/src folder in your home directory and place the package inside the src folder.
+
+### 1. Install dependencies
+
+Use the provided `setup.sh` script to install all required dependencies.
+
+### 2. After compilation, launch the following files:
+
+**Start the robot simulation**
+```bash
+roslaunch mir_examples single_mir_600.launch
+```
+**Start LIO-SAM localization**
+```bash
+roslaunch lio_sam run6axis.launch
+```
+**Start AMCL localization**
+```bash
+roslaunch mir_examples amcl.launch
+```
+**Start the RQT tool to manually control the robot**
+```bash
+rosrun rqt_robot_steering rqt_robot_steering
+```
+

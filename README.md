@@ -9,7 +9,7 @@ This repository contains all code of the students working at the Institut of Ass
 5. Column `Thesis title`: Insert the title of your thesis.
 6. Column `Description`: Explain in one sentence what algorithm or code you developed in your thesis.
 7. Type in a meaningful commit message and commit the changes.
-8. Go to chapter [Pull Request](### Pull Request) and immediatly create a pull request to add yourself to the table so other students know a specific id is occupied. After creating this pull request go to the chapter [How to add your code](## How to add your code) and perform the steps of one of the two methods.
+8. Go to the chapter [How to add your code](## How to add your code) and perform the steps of one of the two methods.
 
 ## How to add your code
 There are two methods for adding your code. The first is only using the Github-Webinterface. The second option is by cloning the repository and working on your computer. We advice to use the second method.
@@ -22,7 +22,7 @@ There are two methods for adding your code. The first is only using the Github-W
 5. Navigate into the created folder `Id_NameOfStep3`.
 6. Add all packages and additional files into the folder by clicking the `Add file`-button: ![AddFileButton](documentation/add_file_button.png) and then `Upload files`. Drag and drop all folders or files from the File Explorer into the box on the web interface to upload. (On Windows it is Windows Explorer on Ubuntu it is File Manager)
 7. Type in a meaningful commit message and commit the changes.
-8. Add a `README.md`-file in your folder (see `step 4`) and use the structure of the example-README-file in `000_ExampleFolder`.
+8. Add a `README.md`-file in your folder (see `step 4`) and use the structure of the example-README-file in `000_ExampleFolder`. If applicable, create a setup.sh file to automate the installation of your code. An example setup.sh can be found [here](https://github.com/match-ROS/match_mobile_robotics/blob/noetic-devel/setup_full.sh).
 9. Fill out every necessary information in the copied structure and add any more details you want to describe or use your package.
 10. Type in a meaningful commit message and commit the changes.
 11. To finish, please jump to the chapter [Pull Request](### Pull Request) where you create a pull request to the main repository.

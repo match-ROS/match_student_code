@@ -8,6 +8,9 @@ This folder acts as an example for all the future students that will upload thei
 
 **E-Mail:** lurz@match.uni-hannover.de
 
+## Installation
+Explain how to install your code. For ROS code, for example, start by explaining that your folder should be copied to catkin_ws/src. If applicable, create a setup.sh file to automate the installation of your code. An example setup.sh can be found [here](https://github.com/match-ROS/match_mobile_robotics/blob/noetic-devel/setup_full.sh).
+
 ## Packages
 ### example_pkg 
 Explain in one sentence what the package is. In the package should be another README that deeply explains how to use the package. See the example file in the `example_pkg`-folder for the structure.

@@ -166,7 +166,7 @@ It publishes data to:
 
 ## Testing & Troubleshooting
 
-- **Example Testing:**
+**Example Testing:**
   Use the provided test package *test_dynamic_model*:
   1. Add the src folder to a catkin workspace
   2. Navigate to your catkin workspace and run:
@@ -198,7 +198,7 @@ It publishes data to:
     rosrun dynamic_model record_topics.py
   ```
 
-- **Troubleshooting:**
+**Troubleshooting:**
   - Ensure the custom message package `custom_msgs` is built and sourced.
   - Check that the correct topics are being published/subscribed.
   - Refer to the ROS console for any error messages.

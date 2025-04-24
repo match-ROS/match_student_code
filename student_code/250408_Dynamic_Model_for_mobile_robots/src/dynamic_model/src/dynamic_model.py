@@ -191,7 +191,7 @@ class DynModell(): #RobotBase
 
         if is_ros_master_running():
             print("RosMaster Found\nStarting Dynamic Model Node")   
-            rospy.init_node('tracked_mobile_robot')
+            rospy.init_node('dynamic_model')
             rospy.sleep(0.01)
             startup_time = rospy.Time().now().to_sec()      
 

@@ -7,7 +7,7 @@ The ROS package *dynamic_model* implements a dynamic model node for mobile robot
 
 **E-Mail:** o.maas@stud.uni-hannover.de
 
-The node:
+The node *dynamic_model*:
 - **Subscribes to:**
   - **IMU Data:** For orientation and linear acceleration.
   - **Encoder Data:** For wheel odometry.
@@ -17,7 +17,7 @@ The node:
   - `/dynModMoment`: Moments (torques) computed from the dynamic model.
 - **Uses:** 
   - A custom ROS message (`StateVector.msg`) defined in the `custom_msgs` package (a stamped float array).
-  - Sensor data interpolation, kinematic models (odometrie_mecanum, odometrie_tracked, odometrie_differential), and recursive least squares (RLS) for online parameter identification.
+  - Sensor data interpolation, kinematic models (*odometrie_mecanum.py*, *odometrie_tracked.py*, *odometrie_differential.py*), and recursive least squares (*rls.py*) for online parameter identification.
 - **Tested with:** ROS Noetic, Python 3.8.10.
 
 Additional details regarding the mathematics and algorithms can be found in the associated master thesis.
@@ -124,17 +124,17 @@ To use the dynamic model it can be started in multiple ways:
 
   You can include the dynamic model as a node in a custom launch file. Example launch file: 
 
-  '''xml
-  <launch>
-    <!-- [Your Code] -->
+  ```xml
+    <launch>
+      <!-- [Your Code] -->
 
-    <!-- Start the dynamic model -->
-    <node pkg="dynamic_model"
-          type="dynamic_model.py"
-          name="dynamic_model"
-          output="screen" />
-</launch>
-  '''
+      <!-- Start the dynamic model -->
+      <node pkg="dynamic_model"
+            type="dynamic_model.py"
+            name="dynamic_model"
+            output="screen" />
+    </launch>
+  ```
 
 ### Topics
 

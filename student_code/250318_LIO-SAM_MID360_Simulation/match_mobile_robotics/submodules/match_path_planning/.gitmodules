@@ -1,3 +1,0 @@
-[submodule "voronoi_planner/nlopt"]
-	path = splined_voronoi/nlopt
-	url = https://github.com/stevengj/nlopt

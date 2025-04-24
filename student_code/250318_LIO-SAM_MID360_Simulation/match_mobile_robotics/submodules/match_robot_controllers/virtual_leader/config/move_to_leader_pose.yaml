@@ -1,3 +1,0 @@
-move_to_leader_pose:
-  robot_pose_topic: /mir_pose_stamped_simple
-  leader_pose_topic: /virtual_leader/leader_pose

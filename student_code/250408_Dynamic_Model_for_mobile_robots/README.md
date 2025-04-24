@@ -1,7 +1,7 @@
 # Dynamic Model for Mobile Robots
 ## Overview
 
-This ROS package implements a dynamic model node for mobile robot applications. It is designed to work in both simulation and real-world scenarios by fusing sensor data from other nodes to model the robot's dynamics. This package is intended for developers, students, and institute employees working with mobile robots.
+The ROS package *dynamic_model* implements a dynamic model node for mobile robot applications. It is designed to work in both simulation and real-world scenarios by fusing sensor data from other nodes to model the robot's dynamics. This package is intended for developers, students, and institute employees working with mobile robots. The source folder additionally provides a test environment to test the operation of the dynamic model with an agilex scout mini robot.
 
 **Author:** Oliver Maas
 
@@ -111,17 +111,30 @@ The robot is configured using the `robot_settings.json` file. This file contains
 
 ## Usage
 
-The node can be executed in multiple ways:
+To use the dynamic model it can be started in multiple ways:
 
 - **Directly from the terminal:**
 
   ```bash
-  python path/to/your_script.py
+  python src/dynamic_model/src/dynamic_model.py
   ```
+  This runs the node in a standalone terminal. It requires Gazebo to run simultaneusly.
 
 - **Via a ROS launch file:**
 
-  You can include the node in a custom launch file.  
+  You can include the dynamic model as a node in a custom launch file. Example launch file: 
+
+  '''xml
+  <launch>
+    <!-- [Your Code] -->
+
+    <!-- Start the dynamic model -->
+    <node pkg="dynamic_model"
+          type="dynamic_model.py"
+          name="dynamic_model"
+          output="screen" />
+</launch>
+  '''
 
 ### Topics
 
@@ -153,9 +166,37 @@ It publishes data to:
 
 ## Testing & Troubleshooting
 
-- **Testing:**
-  - Run the node and verify that the topics `/robot_state`, `/dynModForce`, and `/dynModMoment` are being published.
-  - Use the `record_topics.py` script to capture and review data.
+- **Example Testing:**
+  Use the provided test package *test_dynamic_model*:
+  1. Add the src folder to a catkin workspace
+  2. Navigate to your catkin workspace and run:
+   ```bash
+   catkin_make
+   ```
+  
+  3. Launch the test world:
+  ```bash
+   roslaunch test_dynamic_model plainworld.launch
+  ```
+  4. Make sure to source your workspace:
+   ```bash
+   source devel/setup.bash
+   ```
+
+  5. In a different termianl start the dynamic_model:
+  ```bash
+    rosrun dynamic_model dynamic_model.py
+  ```
+
+  6. Start some sort of controller to navigate the robot e.g.:
+  ```bash
+    rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+  ```
+
+  7. In a different Termial run the *record_topics.py* script to save the topics data for later visualisation:
+  ```bash
+    rosrun dynamic_model record_topics.py
+  ```
 
 - **Troubleshooting:**
   - Ensure the custom message package `custom_msgs` is built and sourced.
@@ -164,6 +205,5 @@ It publishes data to:
 
 ## Additional Documentation
 
-The mathematical derivations, algorithms, and detailed explanations of the dynamic model and estimation techniques are described in the associated master thesis "Entwicklung eines dynamischen Modells zur flexiblen Implementierung auf mobilen
-Robotersystemen" / Development of a dynamic model for flexible implementation on mobile robot systems".
+The mathematical derivations, algorithms, and detailed explanations of the dynamic model and estimation techniques are described in the associated master thesis "Entwicklung eines dynamischen Modells zur flexiblen Implementierung auf mobilen Robotersystemen" / Development of a dynamic model for flexible implementation on mobile robot systems".
 

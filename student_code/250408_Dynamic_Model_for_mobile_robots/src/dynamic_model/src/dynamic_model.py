@@ -994,7 +994,7 @@ class DynModell(): #RobotBase
         for i in range(4):
             z_wheel_equi = Z + wheel_static_b[:,2][i] #config.wheel_positions contains relative wheel position in equilibrium
             delta[i] = z_wheel_equi - self.z_wheels 
-            delta_dot[i] = dZ2
+            delta_dot[i] = dZ
     
         # Compute forces
 

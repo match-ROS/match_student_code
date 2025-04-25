@@ -8,6 +8,11 @@ The simulation is based on the **MiR600** robot platform.
 
 - The simulation world file is:  
   `/match_gazebo/worlds/new.world`
+  
+Run the following command to install all dependencies and compile:
+```bash
+bash setup_full.sh
+``` 
 
 For more details, please refer to the official repository:  
 https://github.com/match-ROS/match_mobile_robotics

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>test_dynamic_model</name>
+  <version>0.0.0</version>
+  <description>test_dynamic_model</description>
+
+  <maintainer email="o.maas@stud.uni-hannover.de">ros</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>gazebo_ros</depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds"/>
+  </export>
+</package>

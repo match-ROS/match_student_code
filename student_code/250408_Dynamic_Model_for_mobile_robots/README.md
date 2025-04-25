@@ -13,6 +13,12 @@ The node *dynamic_model*:
   - **Encoder Data:** For wheel odometry.
 - **Publishes:**
   - `/robot_state`: Full state vector including dynamics.
+    - dstate[0:3] = [X, Y, Z] #v_chassis  # Translational velocities
+    - dstate[3:7] = q  # Quaternions
+    - dstate[7:10] = [dX, dY, dZ]  # Translational velocities
+    - dstate[10:13] = omega  # Angular velocities
+    - dstate[13:17] = alpha  # Wheel angular
+    - dstate[17:21] = dalpha  # Wheel angular velocities
   - `/dynModForce`: Forces computed from the dynamic model.
   - `/dynModMoment`: Moments (torques) computed from the dynamic model.
 - **Uses:** 

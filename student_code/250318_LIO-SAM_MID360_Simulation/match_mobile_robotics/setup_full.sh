@@ -1,3 +1,13 @@
+sudo apt update
+
+# install dependencies
+sudo apt install -y ros-noetic-navigation
+sudo apt install -y ros-noetic-serial
+
+
+sudo apt install -y --reinstall libnlopt-dev
+sudo apt install -y libnlopt-cxx-dev
+
 # copy meshes to the local gazebo model folder
 mkdir ~/.gazebo/models/meshes -p
 cp match_gazebo/models/meshes/* /home/$USER/.gazebo/models/meshes

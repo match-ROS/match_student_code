@@ -31,7 +31,7 @@ sudo apt install libignition-math4-dev
 - `paramsLivoxIMU.yaml`: Parameter configuration specifically used for Livox lidar.
 
 ## Launch files
-- `run6axis.launch`: The launch file to be run when using a 6-axis IMU (the simulation uses a 6-axis IMU)
+- `run6axis.launch`: The launch file to be run when using a 6-axis IMU
 
 - `run9axis.launch`: The launch file to be run when using a 9-axis IMU
 

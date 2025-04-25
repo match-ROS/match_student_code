@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-	<!-- lidar position parameters -->
+	<!-- 雷达高度参数 -->
 	<xacro:property name="lidar_x" value="0.0"/>
 	<xacro:property name="lidar_y" value="0.0"/>
 	<xacro:property name="lidar_z" value="0.89"/>

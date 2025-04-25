@@ -2,7 +2,6 @@
 
     <arg name="project" default="lio_sam"/>
 
-  
     <env name="ROSCONSOLE_CONFIG_FILE" value="$(find lio_sam)/launch/include/rosconsole/rosconsole_error.conf"/>
     
     <!-- Parameters -->

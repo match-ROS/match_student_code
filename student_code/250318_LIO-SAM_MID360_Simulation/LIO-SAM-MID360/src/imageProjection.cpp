@@ -14,7 +14,7 @@ POINT_CLOUD_REGISTER_POINT_STRUCT (VelodynePointXYZIRT,
     (uint16_t, ring, ring) (float, time, time)
 )
 
-struct LivoxPointCustomMsg
+struct LiovxPointCustomMsg
 {
     PCL_ADD_POINT4D
     PCL_ADD_INTENSITY;
@@ -23,7 +23,7 @@ struct LivoxPointCustomMsg
     uint16_t tag;
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 } EIGEN_ALIGN16;
-POINT_CLOUD_REGISTER_POINT_STRUCT (LivoxPointCustomMsg,
+POINT_CLOUD_REGISTER_POINT_STRUCT (LiovxPointCustomMsg,
     (float, x, x) (float, y, y) (float, z, z) (float, intensity, intensity) (float, time, time)
     (uint16_t, ring, ring) (uint16_t, tag, tag)
 )
@@ -45,7 +45,7 @@ POINT_CLOUD_REGISTER_POINT_STRUCT(OusterPointXYZIRT,
 )
 
 // Use the Velodyne point format as a common representation
-using PointXYZIRT = LivoxPointCustomMsg;
+using PointXYZIRT = LiovxPointCustomMsg;
 
 const int queueLength = 2000;
 

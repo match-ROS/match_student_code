@@ -32,7 +32,7 @@ public:
     }
 
     void mergeScans() {
-        // Make sure both laser scans have been received
+      
         if (!front_received || !back_received)
             return;
 
@@ -40,18 +40,18 @@ public:
         sensor_msgs::LaserScan merged;
         merged.header.frame_id = "front_laser_link";
         merged.header.stamp = ros::Time::now();
-
-        // 360° scan
+   
         merged.angle_min = -M_PI;
         merged.angle_max = M_PI;
-        // Use the angular resolution of front_scan 
+        
+        // Use the angular resolution of front_scan
         merged.angle_increment = front_scan.angle_increment;  
 
-        // Determine number of data points based on angle range and resolution
+        
         int num_readings = std::round((merged.angle_max - merged.angle_min) / merged.angle_increment);
         merged.ranges.assign(num_readings, std::numeric_limits<float>::infinity());
 
-        // Set merged range_min and range_max to the extremes of both scans
+        // Set merged range_min and range_max, the extremes of both scans
         merged.range_min = std::min(front_scan.range_min, back_scan.range_min);
         merged.range_max = std::max(front_scan.range_max, back_scan.range_max);
 
@@ -64,7 +64,7 @@ public:
             double angle = front_scan.angle_min + i * front_scan.angle_increment;
             double x = r * cos(angle);
             double y = r * sin(angle);
-            // The point is already in front_laser_link frame
+            
             double point_angle = atan2(y, x);
             int index = std::round((point_angle - merged.angle_min) / merged.angle_increment);
             if (index >= 0 && index < num_readings) {
@@ -76,7 +76,8 @@ public:
         // --------- Process back_scan data (needs transformation to front_laser_link frame) ---------
         geometry_msgs::TransformStamped transformStamped;
         try {
-            // This gets the transform from back_laser_link to front_laser_link
+            //gets the transform from back_laser_link to front_laser_link
+            
             transformStamped = tf_buffer.lookupTransform("front_laser_link", "back_laser_link", 
                                                            ros::Time(0), ros::Duration(1.0));
         } catch (tf2::TransformException &ex) {
@@ -132,4 +133,3 @@ int main(int argc, char** argv) {
     ros::spin();
     return 0;
 }
-

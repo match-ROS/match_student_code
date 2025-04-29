@@ -69,4 +69,4 @@ To merge your changes/added files into the official match-ROS repository, we nee
 | [250205](student_code/250205_MultiCableRobotPlanner/README.md) | Entwicklung eines globalen Bahnplanungsalgorithmus für ein kabelgebundenes Multi-Roboter-System | In this thesis a global path planning algorithm for a tangled multi-robot-system was developed. |
 | [250318](student_code/250318_LIO-SAM_MID360_Simulation/README.md) | Development of a localization algorithm for mobile manipulators in additive manufacturing | Implemente and evaluate LIO-SAM and AMCL localization algorithms using a Livox MID360-equipped robot in a simulation environment. |
 | [250408](student_code/250408_Dynamic_Model_for_mobile_robots/README.md) | Entwicklung eines dynamischen Modells zur flexiblen Implementierung auf mobilen Robotersystemen | Dynamische Modellierung von mobilen Robotern, wobei das Modell flexibel auf verschiedenste Roboter übertragen werden kann |
-
+| [250428](student_code/250408_Scan_to_map_localization_Mid360_Simulation/README.md) | Development and implementation of a concept for localization using 3D-LiDAR | Algorithm for scan-to-map based 3D real-time localization |

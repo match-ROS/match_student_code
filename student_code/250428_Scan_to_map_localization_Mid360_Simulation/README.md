@@ -96,15 +96,15 @@ rostopic echo /Odometry
 ```
 
 ## Scripts
-### positioningerro_time.py 
-Generates velocity-over-time plots.
-###boxplots.py 
-boxplots.py: Creates box plots for error distribution.
-###rotationrpe.py
-rotationrpe.py: Computes and plots rotational RPE.
+### positioningerror_time.py 
+Generate position-over-time plots.
+### boxplots.py 
+Creat box plots for error distribution.
+### rotationrpe.py
+Compute and plot rotational RPE.
 ### translationalrpe.py
-translationalrpe.py: Computes and plots translational RPE.
+Compute and plot translational RPE.
 ### vel_angularvel_time.py
-vel_angularvel_time.py: Plots linear and angular velocity over time.
+Plot linear and angular velocity over time.
 
 These Python scripts help analyze and visualize the performance metrics (ATE, RPE, box plots) of the localization experiments.

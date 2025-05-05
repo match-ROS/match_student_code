@@ -1,4 +1,16 @@
 #!/bin/bash
+mkdir -p ~/temp
+mv LIO-SAM-MID360/ ~/temp/LIO-SAM-MID360/
+mv livox_laser_simulation/ ~/temp/livox_laser_simulation/
+mv livox_ros_driver/ ~/temp/livox_ros_driver/
+cd match_mobile_robotics
+./setup_full.sh
+cd ..
+mv ~/temp/LIO-SAM-MID360/ LIO-SAM-MID360/
+mv ~/temp/livox_laser_simulation/ livox_laser_simulation/
+mv ~/temp/livox_ros_driver/ livox_ros_driver/
+rm -r ~/temp
+source ../../devel/setup.bash
 
 # install libignition-math4
 sudo apt update
@@ -15,12 +27,13 @@ if [ ! -d "Livox-SDK" ]; then
   git clone https://github.com/Livox-SDK/Livox-SDK.git
 fi
 cd Livox-SDK
-mkdir -p build && cd build
+mkdir -p build/src && cd build
 cmake ..
 make -j$(nproc)
 sudo make install
 
-cd ~/catkin_ws
+# source ../../devel/setup.bash
+roscd && cd ..
 
 # install dependencies
 rosdep update

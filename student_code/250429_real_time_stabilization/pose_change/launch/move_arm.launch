@@ -1,0 +1,5 @@
+<launch> 
+
+    <!-- Start the MoveIt arm positioning script -->
+    <node name="move_left_arm_with_moveit" pkg="pose_change" type="move_arm_to_start.py" output="screen"/>
+</launch>

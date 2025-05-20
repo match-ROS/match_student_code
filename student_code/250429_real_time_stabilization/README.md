@@ -21,7 +21,7 @@ The following ROS packages are included:
 **E-Mail**: pushkar.singh@stud.uni-hannover.de
 
 ---
-This project requires ROS Noetic and Python 3.8 or newer. The match_mobile_robotics repository must be installed for the simulation environment to work properly.
+This project requires ROS Noetic and Python 3.8 or newer. The match_mobile_robotics suspension repository must be installed for the simulation environment to work properly.
 
 ## Installation
 

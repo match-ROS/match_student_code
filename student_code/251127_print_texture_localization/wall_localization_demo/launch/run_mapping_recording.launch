@@ -1,0 +1,26 @@
+<launch>
+
+    <include file="$(find wall_localization_demo)/launch/spawn_world_and_robot.launch"/>
+  
+    <!-- Record wall scans -->
+    <node pkg="wall_localization_demo" type="record_wall_scan.py"
+          name="record_wall_scan" output="screen">
+      <param name="out_cloud_csv"
+             value="$(find wall_localization_demo)/data/mapping_run/wall_points_gazebo.csv"/>
+      <param name="out_midpath_csv"
+             value="$(find wall_localization_demo)/data/mapping_run/wall_midpath_gazebo.csv"/>
+      <param name="pointcloud_topic" value="/scan_cloud"/>
+      <param name="wall_frame" value="wall"/>
+      <param name="scanner_frame" value="vertical_profiler_link"/>
+      <param name="base_frame" value="base_link"/>
+    </node>
+  
+    <!-- Drive robot along wall -->
+    <node pkg="wall_localization_demo" type="move_along_wall.py"
+          name="move_robot" output="screen">
+      <param name="speed" value="0.05"/>
+      <param name="duration" value="60"/>
+    </node>
+  
+  </launch>
+  

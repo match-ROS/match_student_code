@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+
+  <world name="textured_wall_world">
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://printed_wall</uri>
+      <name>printed_wall</name>
+      <pose>5 1.5 0 0 0 3.14159</pose>
+    </include>
+
+  </world>
+
+</sdf>

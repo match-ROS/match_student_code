@@ -1,0 +1,26 @@
+<launch>
+    <!-- Start Gazebo with wall world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find wall_localization_demo)/worlds/textured_wall.world"/>
+    </include>
+  
+    <!-- Publish URDF -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro $(find wall_localization_demo)/urdf/robot_with_scanner.urdf.xacro"/>
+  
+    <!-- Spawn the robot -->
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_robot" output="screen"
+          args="-urdf -param robot_description -model robot -x 0 -y 0 -z 0.0"/>
+  
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rsp"/>
+
+      <!-- world → odom is static -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_odom"
+      args="0 0 0 0 0 0 world odom" />
+  
+    <!-- world → wall is static -->
+    <node pkg="tf2_ros" type="static_transform_publisher"
+          name="world_to_wall"
+          args="5 1.5 0 0 0 3.14159 world wall"/>
+  </launch>
+  

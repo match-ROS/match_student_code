@@ -1,0 +1,27 @@
+# ============================================================
+#  LOCALIZATION_2D PARAMETERS (OVERWRITES DEFAULT CONSTANTS)
+# ============================================================
+
+loc2d:
+
+  # -------- General --------
+  stride: 16
+  max_query_kps: 60
+  patch_h: 100
+  patch_w: 100
+
+  # -------- LBP-HF --------
+  lbp_radius: 2
+  lbp_points: 16           
+  lbphf_keep: 24
+  coarse_topk: 10
+
+  # -------- SIFT --------
+  sift_ratio: 0.7
+  sift_pca_dim: 4
+  scale_bins: 3
+
+  # -------- FLANN (SIFT matcher) --------
+  flann_trees: 4
+  flann_checks: 60
+

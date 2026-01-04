@@ -1,0 +1,18 @@
+wall_frame: "wall"
+scanner_frame: "vertical_profiler_link"
+base_frame: "base_link"
+
+s_min_live: -1.0
+s_max_live: 1.0
+z_min_live: 0.0
+z_max_live: 5.0
+
+live_patch_s_length: 0.20
+
+method: "lbp"
+
+icp_max_dist: 0.05
+icp_max_iter: 50
+
+live_img_h: 11     # matches PATCH_H
+live_img_w: 6     # matches PATCH_W

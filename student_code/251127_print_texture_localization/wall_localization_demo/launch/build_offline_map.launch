@@ -1,0 +1,16 @@
+<launch>
+
+  <!-- Build mapping dictionary (u,v)->(gray, point_indices) -->
+  <node pkg="wall_localization_demo" type="pcl2texture.py"
+        name="build_texture_map" output="screen">
+    <param name="cloud"
+           value="$(find wall_localization_demo)/data/mapping_run/wall_points_gazebo.csv"/>
+    <param name="out-map"
+           value="$(find wall_localization_demo)/data/mapping_run/offline_map_gazebo.npy"/>
+    <param name="out-points"
+           value="$(find wall_localization_demo)/data/mapping_run/offline_points_gazebo.npy"/>
+    <param name="delta-s" value="0.005"/>
+    <param name="delta-z" value="0.005"/>
+  </node>
+
+</launch>

@@ -1,0 +1,56 @@
+<launch>
+
+    <!-- Start Gazebo -->
+    <include file="$(find wall_localization_demo)/launch/spawn_world_and_robot.launch"/>
+  
+    <!-- Run Scanner Pose Estimator -->
+    <node pkg="wall_localization_demo" type="main.py"
+          name="scanner_pose_estimator" output="screen">
+  
+      <!-- Offline map + 3D points -->
+      <param name="offline_map_npy"
+             value="$(find wall_localization_demo)/data/mapping_run/offline_map.npy"/>
+      <param name="offline_points_npy"
+             value="$(find wall_localization_demo)/data/mapping_run/offline_points.npy"/>
+      <param name="offline_lbp_db_pkl"
+             value="$(find wall_localization_demo)/data/mapping_run/offline_lbp_db.pkl"/>
+      <param name="offline_sift_db_pkl"
+             value="$(find wall_localization_demo)/data/mapping_run/offline_sift_db.pkl"/>
+  
+      <!-- Method -->
+      <param name="method" value="sift"/>
+  
+      <!-- Live patch settings -->
+      <param name="s_min_live" value="-0.6"/>
+      <param name="s_max_live" value="0.6"/>
+      <param name="z_min_live" value="0.0"/>
+      <param name="z_max_live" value="2.0"/>
+      <param name="live_patch_s_length" value="0.2"/>
+  
+      <!-- Pointcloud + odometry -->
+      <param name="pointcloud_topic" value="/scan_cloud"/>
+      <param name="odom_topic" value="/odom"/>
+  
+      <!-- ICP -->
+      <param name="icp_max_dist" value="0.0035"/>
+      <param name="icp_max_iter" value="50"/>
+
+      <!-- Load descriptor & localization parameters -->
+       <rosparam file="$(find wall_localization_demo)/config/localization_params.yaml" command="load"/>
+
+       <!-- Load scanner patch & ICP settings -->
+       <rosparam file="$(find wall_localization_demo)/config/estimator_params.yaml" command="load"/>
+  
+    </node>
+  
+    <!-- Ground-truth vs Estimated pose comparison -->
+    <node pkg="wall_localization_demo" type="compare_poses.py"
+          name="compare_poses" output="screen">
+      <param name="gt_csv"
+             value="$(find wall_localization_demo)/data/localization_run/groundtruth_poses.csv"/>
+      <param name="est_csv"
+             value="$(find wall_localization_demo)/data/localization_run/estimated_poses.csv"/>
+    </node>
+  
+  </launch>
+  

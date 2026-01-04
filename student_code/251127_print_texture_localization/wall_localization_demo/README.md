@@ -64,30 +64,55 @@ Odometry data of the mobile robot.
 
 ## Parameters
 ```wall_frame``` (type: string, default: wall): Reference frame attached to the wall geometry.
+
 ```scanner_frame``` (type: string, default: vertical_profiler_link): Frame of the vertical profiler sensor.
+
 ```base_frame``` (type: string, default: base_link): Robot base frame used for odometry and TF lookups.
+
 ```odom_topic``` (type: string, default: /odom): Odometry topic used for motion tracking.
+
 ```s_min_live``` (type: float, default: -0.6): Minimum along-wall coordinate for live scan filtering.
+
 ```s_max_live``` (type: float, default: 0.6): Maximum along-wall coordinate for live scan filtering.
+
 ```z_min_live``` (type: float, default: 0.0): Minimum height for live scan filtering.
+
 ```z_max_live``` (type: float, default: 2.0): Maximum height for live scan filtering.
+
 ```live_img_w``` (type: int, default: 6): Width of the live patch image.
+
 ```live_img_h``` (type: int, default: 11): Height of the live patch image.
+
 ```icp_max_iter``` (type: int, default: 50): Maximum number of ICP iterations.
+
 ```icp_max_dist``` (type: float, default: 0.0035): Maximum correspondence distance used during ICP refinement.
+
 ```method``` (type: string, default: sift): Feature matching method used for 2D localization.
+
 ```stride``` (type: int, default: 16): Step size used when sliding the query window over the offline wall map during 2D localization.
+
 ```max_query_kps``` (type: int, default: 60): Maximum number of keypoints extracted from the live patch and used for feature matching.
+
 ```patch_h``` (type: int, default: 100): Height of the image patch used for 2D feature extraction and matching.
+
 ```patch_w``` (type: int, default: 100): Width of the image patch used for 2D feature extraction and matching.
+
 ```lbp_radius``` (type: int, default: 2): Radius of the circular neighborhood used for LBP feature computation.
+
 ```lbp_points``` (type: int, default: 16): Number of sampling points on the LBP circular neighborhood.
+
 ```lbphf_keep``` (type: int, default: 24): Number of most significant LBP-HF histogram bins retained for matching.
+
 ```coarse_topk``` (type: int, default: 10): Number of top candidate matches retained during coarse 2D localization.
+
 ```sift_ratio``` (type: float, default: 0.7): Lowe’s ratio threshold used to filter ambiguous SIFT feature matches.
+
 ```sift_pca_dim``` (type: int, default: 4): Dimensionality of SIFT descriptors after PCA compression.
+
 ```scale_bins``` (type: int, default: 3): Number of scale bins used for multi-scale SIFT feature extraction.
+
 ```flann_trees``` (type: int, default: 4): Number of KD-trees used by the FLANN-based SIFT matcher.
+
 ```flann_checks``` (type: int, default: 60): Number of search checks performed by the FLANN matcher during feature matching.
 
 

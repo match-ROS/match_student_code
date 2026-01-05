@@ -1,0 +1,5 @@
+cloud: "$(find wall_localization_demo)/data/demo_points.csv"
+out_map: "offline_map.npy"
+out_points: "offline_points.npy"
+delta_s: 0.005
+delta_z: 0.005

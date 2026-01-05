@@ -1,0 +1,12 @@
+rosbag
+.vscode
+.git
+
+*.csv
+*.png
+*.jpg
+*.obj
+*.dae
+*.npy
+*.npz
+*.pkl

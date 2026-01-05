@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>wall_localization_demo</name>
+  <version>0.0.1</version>
+  <description>Gazebo + LiDAR wall localization demo using SIFT, LBP-HF, and ICP</description>
+
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>BSD</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Runtime + build dependencies -->
+  <depend>rospy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <depend>tf2_ros</depend>
+  <depend>tf2_py</depend>
+  <depend>tf_conversions</depend>
+
+  <depend>pcl_ros</depend>
+  <depend>pcl_msgs</depend>
+
+  <depend>gazebo_ros</depend>
+
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+
+  <!-- For OpenCV, NumPy, skimage, sklearn, Open3D -->
+  <!-- These are system packages, not ROS packages -->
+  <exec_depend>python3-opencv</exec_depend>
+
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-scipy</exec_depend>
+  <exec_depend>python3-skimage</exec_depend>
+  <exec_depend>python3-sklearn</exec_depend>
+
+  <!-- For ICP (Open3D) -->
+  <exec_depend>python3-open3d</exec_depend>
+
+  <export>
+    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}"/>
+  </export>
+
+</package>

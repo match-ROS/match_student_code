@@ -115,4 +115,107 @@ Odometry data of the mobile robot.
 
 ```flann_checks``` (type: int, default: 60): Number of search checks performed by the FLANN matcher during feature matching.
 
+# General Usage
+
+## 1. Convert a point cloud (CSV) into an offline texture map
+
+This step converts a recorded wall point cloud in CSV format into a 2D texture
+representation that is later used for localization.
+
+Run the following script:
+```
+python3 src/wall_localization_demo/pcl2texture.py \
+--cloud data/mapping_run/wall_points_bag.csv \
+--midpath data/mapping_run/wall_midpath_bag.csv \
+--delta_s 0.005 \
+--delta_z 0.005 \
+--out_map data/mapping_run/offline_map.npy \
+--out_points data/mapping_run/offline_points.npy
+```
+Relevant parameters:
+- `--delta_s`: resolution along the wall direction in m
+- `--delta_z`: vertical resolution in m
+- `--cloud`, `--midpath`: input CSV files
+- `--out_map`, `--out_points`: output files
+
+Outputs:
+- offline_map.npy, used for 2D feature matching
+- offline_points.npy, used for ICP refinement
+
+
+## 2. Build SIFT and LBP descriptor databases
+
+Offline descriptor databases are generated from the texture map using
+localization_2d.py.
+
+To build the SIFT database:
+```
+python3 src/wall_localization_demo/localization_2d.py \
+--method sift \
+--pixel_map data/mapping_run/offline_map.npy \
+--new
+```
+To build the LBP database:
+```
+python3 src/wall_localization_demo/localization_2d.py \
+--method lbp \
+--pixel_map data/mapping_run/offline_map.npy \
+--new
+```
+Relevant parameters:
+- Feature extraction and matching parameters are defined in
+  config/localization_params.yaml (e.g. stride, patch_h, patch_w,
+  lbp_radius, sift_ratio, flann_trees)
+- `--new` forces rebuilding the database if it already exists
+
+Outputs:
+- data/mapping_run/offline_sift_db.pkl
+- data/mapping_run/offline_lbp_db.pkl
+
+
+## 3. Spawn the Gazebo simulation
+
+This step starts the simulation environment including the wall model and the
+robot equipped with the vertical profiler.
+```
+roslaunch wall_localization_demo spawn_world_and_robot.launch
+```
+The robot can move along the wall by running:
+```
+python3 src/wall_localization_demo/move_along_wall.py \
+--speed 0.05 \
+--duration 60
+```
+or to move the robot and perform the recording at the same time:
+```
+roslaunch wall_localization_demo run_mapping_recording.launch
+```
+
+
+## 4. Run localization and evaluation
+
+Run the complete localization and evaluation pipeline:
+```
+roslaunch wall_localization_demo run_localization.launch
+```
+What happens:
+- main.py estimates the scanner pose and publishes the TF frame
+  scanner_icp_refined
+- compare_poses.py records ground truth and estimated poses into CSV files
+
+Relevant parameters:
+- In config/estimator_params.yaml:
+  - `method`: sift or lbp
+  - `pointcloud_topic`
+  - `s_min_live`,` s_max_live`
+  - `z_min_live`, `z_max_live`
+  - `live_patch_s_length`, `live_img_w`, `live_img_h`
+  - `icp_max_iter`, `icp_max_dist`
+- In the launch file:
+  - output paths for ground truth and estimated CSV files
+
+Outputs:
+- data/localization_run/groundtruth_poses.csv
+- data/localization_run/estimated_poses.csv
+
 

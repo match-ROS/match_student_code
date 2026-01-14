@@ -18,6 +18,12 @@ catkin build
 source devel/setup.bash
 ```
 
+Add the folder data from the additional thesis files and move the wall_mesh.obj from data to models/printed wall.
+To correctly spawn the wall in gazebo, add the following line to your ~/.bashrc:
+```bash
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/wall_localization_demo/models
+```
+
 ## Package
 ### wall_localization_demo
 

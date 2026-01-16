@@ -21,10 +21,11 @@
       <param name="method" value="sift"/>
   
       <!-- Live patch settings -->
-      <param name="s_min_live" value="-0.6"/>
+      <!-- wall is oriented false, therefore negative values -->
+      <param name="s_min_live" value="-5.0"/>
       <param name="s_max_live" value="0.6"/>
-      <param name="z_min_live" value="0.0"/>
-      <param name="z_max_live" value="2.0"/>
+      <param name="z_min_live" value="-2.0"/>
+      <param name="z_max_live" value="0.0"/>
       <param name="live_patch_s_length" value="0.2"/>
   
       <!-- Pointcloud + odometry -->

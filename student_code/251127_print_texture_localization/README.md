@@ -24,14 +24,6 @@ To correctly spawn the wall in gazebo, add the following line to your ~/.bashrc:
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/wall_localization_demo/models
 ```
 
-Install missing packages:
-```bash
-python3 -m pip install scikit-image
-python3 -m pip install opencv-contrib-python
-
-#sudo apt-get update && sudo apt-get install -y libopencv-dev python3-opencv libopencv-contrib-dev
-```
-
 ## Package
 ### wall_localization_demo
 

@@ -15,6 +15,7 @@ import sensor_msgs.point_cloud2 as pc2
 import tf2_ros
 import tf_conversions
 from geometry_msgs.msg import TransformStamped
+from geometry_msgs.msg import PoseStamped
 
 import open3d as o3d
 
@@ -120,6 +121,13 @@ class ScannerPoseEstimator(object):
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
         self.tf_broadcaster = tf2_ros.TransformBroadcaster()
 
+        # ---------- publishers ----------
+        # Publish the ICP-refined scanner pose as a PoseStamped in wall_frame
+        # (in addition to the TF child frame `scanner_icp_refined`).
+        self.scanner_pose_pub = rospy.Publisher(
+            "scanner_pose", PoseStamped, queue_size=10
+        )
+
         # ---------- load offline map ----------
         rospy.loginfo("Loading offline map from %s", self.offline_map_npy)
         mapping = np.load(self.offline_map_npy, allow_pickle=True).item()
@@ -207,6 +215,7 @@ class ScannerPoseEstimator(object):
     # Scan callback: accumulate patch, localize, run ICP
     # ------------------------------------------------------------------
     def scan_callback(self, msg):
+        # rospy.loginfo("Received new LaserScan message.")
         # msg is now a LaserScan
         pts = self.laserscan_to_points(msg)
         if pts.shape[0] == 0:
@@ -247,6 +256,14 @@ class ScannerPoseEstimator(object):
         )
 
         pts_wall = pts_wall[mask]
+        rospy.loginfo(
+            "Filtered points: %d (s in [%.3f, %.3f], z in [%.3f, %.3f])",
+            pts_wall.shape[0],
+            self.s_min_live,
+            self.s_max_live,
+            self.z_min_live,
+            self.z_max_live,
+        )
         if pts_wall.size == 0:
             return
 
@@ -257,6 +274,11 @@ class ScannerPoseEstimator(object):
         s_all = all_pts[:, 0]
 
         s_range = s_all.max() - s_all.min()
+        rospy.loginfo(
+            "Live patch s_range=%.3f m (required=%.3f m)",
+            s_range,
+            self.live_patch_s_length,
+        )
         if s_range < self.live_patch_s_length:
             # not enough coverage yet
             return
@@ -504,6 +526,19 @@ class ScannerPoseEstimator(object):
         trans.transform.rotation.w = q_ref[3]
 
         self.tf_broadcaster.sendTransform(trans)
+
+        # Also publish as PoseStamped on `scanner_pose`
+        pose_msg = PoseStamped()
+        pose_msg.header.stamp = stamp
+        pose_msg.header.frame_id = self.wall_frame
+        pose_msg.pose.position.x = T[0, 3]
+        pose_msg.pose.position.y = T[1, 3]
+        pose_msg.pose.position.z = T[2, 3]
+        pose_msg.pose.orientation.x = q_ref[0]
+        pose_msg.pose.orientation.y = q_ref[1]
+        pose_msg.pose.orientation.z = q_ref[2]
+        pose_msg.pose.orientation.w = q_ref[3]
+        self.scanner_pose_pub.publish(pose_msg)
 
         rospy.loginfo(
             "ICP refined scanner pose: trans = (%.3f, %.3f, %.3f)",
